@@ -9,7 +9,7 @@ def get_ticker_data_conf(conf_file="./config/data_conf.json"):
     stock= data['stock']
     indices= data['indices']
     correlated_stocks= data['correlated_stocks']
-    data_output_base_dir=data['data_output_base_dir'].format(stock)
+    data_output_base_dir=data['data_output_base_dir']#.format(stock)
     _lookback= int(interval["lookback"])
     interval=interval["interval"]
     return stock, interval, _lookback, indices, correlated_stocks, data_output_base_dir

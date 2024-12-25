@@ -1,0 +1,26 @@
+2024-12-25 13:30:34,122 - ohlcv - INFO - 
+Stock: NVDA, 
+Interval: 1m, 
+Lookback: 5, 
+Indices: [], 
+Correlated Stocks: ['INTC'] 
+Data Output Base Dir: ./files/technical/NVDA
+2024-12-25 13:30:34,126 - ohlcv - INFO - 
+Stock: NVDA, 
+Interval: 1m, 
+Lookback: 5, 
+Indices: [], 
+Correlated Stocks: ['INTC'] 
+Data Output Base Dir: ./files/technical/NVDA
+2024-12-25 13:30:34,126 - ohlcv - INFO - 
+Stock: NVDA, 
+Interval: 1m, 
+Lookback: 5, 
+Indices: [], 
+Correlated Stocks: ['INTC'] 
+Data Output Base Dir: ./files/technical/NVDA
+2024-12-25 13:30:37,387 - ohlcv - INFO - Data engine starting...
+2024-12-25 13:30:37,387 - ohlcv - INFO - Data engine starting...
+2024-12-25 13:30:37,387 - ohlcv - INFO -  Getting data INTC...
+2024-12-25 13:30:37,387 - ohlcv - INFO -  Getting data NVDA...
+2024-12-25 13:30:38,227 - ohlcv - ERROR - Replacement index 4 out of range for positional args tuple

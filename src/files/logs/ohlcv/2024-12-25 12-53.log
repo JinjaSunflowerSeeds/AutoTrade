@@ -1,0 +1,35 @@
+2024-12-25 12:53:44,527 - ohlcv - INFO - 
+Stock: NVDA, 
+Interval: 1m, 
+Lookback: 5, 
+Indices: [], 
+Correlated Stocks: ['INTC'] 
+Data Output Base Dir: ./files/technical/NVDA
+2024-12-25 12:53:44,528 - ohlcv - INFO - Data engine starting...
+2024-12-25 12:53:44,528 - ohlcv - INFO -  Getting data NVDA...
+2024-12-25 12:53:45,223 - ohlcv - INFO -   -> NVDA downloaded: (1386, 5)
+2024-12-25 12:53:45,224 - ohlcv - INFO -  Stats: 
+2024-12-25 12:53:45,224 - ohlcv - INFO -   -> Number of rows: 1386
+2024-12-25 12:53:45,224 - ohlcv - INFO -   -> Number of columns: 5
+2024-12-25 12:53:45,224 - ohlcv - INFO -   -> Column names: Index(['Open', 'High', 'Low', 'Close', 'Volume'], dtype='object')
+2024-12-25 12:53:45,225 - ohlcv - INFO -   -> dtype:
+ Open      float64
+High      float64
+Low       float64
+Close     float64
+Volume      int64
+dtype: object
+2024-12-25 12:53:45,228 - ohlcv - INFO -   -> Info:
+ None
+2024-12-25 12:53:45,228 - ohlcv - INFO -   -> nulls:
+ Open      8
+High      8
+Low       8
+Close     8
+Volume    0
+dtype: int64
+2024-12-25 12:53:45,229 - ohlcv - INFO -  Setting data types...
+2024-12-25 12:53:45,229 - ohlcv - INFO - 1386
+2024-12-25 12:53:45,229 - ohlcv - INFO -  Exporting csv to ./files/technical/NVDA/NVDA_ohlcv_1m.csv
+2024-12-25 12:53:45,240 - ohlcv - INFO - Success downloads!
+2024-12-25 12:53:50,479 - ohlcv - INFO - OHLCV done

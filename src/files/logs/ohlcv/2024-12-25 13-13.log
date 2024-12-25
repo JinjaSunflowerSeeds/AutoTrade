@@ -1,0 +1,50 @@
+2024-12-25 13:13:16,285 - ohlcv - INFO - 
+Stock: NVDA, 
+Interval: 1m, 
+Lookback: 5, 
+Indices: [], 
+Correlated Stocks: ['INTC'] 
+Data Output Base Dir: ./files/technical/NVDA
+2024-12-25 13:13:16,286 - ohlcv - INFO - 
+Stock: NVDA, 
+Interval: 1m, 
+Lookback: 5, 
+Indices: [], 
+Correlated Stocks: ['INTC'] 
+Data Output Base Dir: ./files/technical/NVDA
+2024-12-25 13:13:16,286 - ohlcv - INFO - 
+Stock: NVDA, 
+Interval: 1m, 
+Lookback: 5, 
+Indices: [], 
+Correlated Stocks: ['INTC'] 
+Data Output Base Dir: ./files/technical/NVDA
+2024-12-25 13:13:18,392 - ohlcv - INFO - Data engine starting...
+2024-12-25 13:13:18,392 - ohlcv - INFO - Data engine starting...
+2024-12-25 13:13:18,392 - ohlcv - INFO -  Getting data INTC...
+2024-12-25 13:13:18,392 - ohlcv - INFO -  Getting data NVDA...
+2024-12-25 13:13:20,057 - ohlcv - INFO -   -> INTC downloaded: (0, 6)
+2024-12-25 13:13:20,059 - ohlcv - INFO -  Stats: 
+2024-12-25 13:13:20,059 - ohlcv - INFO -   -> Number of rows: 0
+2024-12-25 13:13:20,059 - ohlcv - INFO -   -> Number of columns: 6
+2024-12-25 13:13:20,059 - ohlcv - INFO -   -> Column names: Index(['Open', 'High', 'Low', 'Close', 'Adj Close', 'Volume'], dtype='object')
+2024-12-25 13:13:20,060 - ohlcv - INFO -   -> dtype:
+ Open         float64
+High         float64
+Low          float64
+Close        float64
+Adj Close    float64
+Volume       float64
+dtype: object
+2024-12-25 13:13:20,069 - ohlcv - INFO -   -> Info:
+ None
+2024-12-25 13:13:20,069 - ohlcv - INFO -   -> nulls:
+ Open         0
+High         0
+Low          0
+Close        0
+Adj Close    0
+Volume       0
+dtype: int64
+2024-12-25 13:13:20,070 - ohlcv - INFO -  Setting data types...
+2024-12-25 13:13:20,070 - ohlcv - INFO - 0

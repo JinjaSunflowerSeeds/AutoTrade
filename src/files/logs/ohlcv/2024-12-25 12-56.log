@@ -1,0 +1,8 @@
+2024-12-25 12:56:39,222 - ohlcv - INFO - 
+Stock: NVDA, 
+Interval: 1m, 
+Lookback: 5, 
+Indices: [], 
+Correlated Stocks: ['INTC'] 
+Data Output Base Dir: ./files/technical/NVDA
+2024-12-25 12:56:42,671 - ohlcv - INFO - OHLCV done

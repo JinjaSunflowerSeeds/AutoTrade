@@ -29,3 +29,7 @@
     1.4. cat ~/.ssh/id_rsa.pub
 2. update or add the key in github settings
 3. ssh -T git@github.com
+4. git add.
+5. git commit -m "msg"
+6. git push -u origin main
+Each time you need to run 1.2 and 1.3 steps to have the agent with github identity

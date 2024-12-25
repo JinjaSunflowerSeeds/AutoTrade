@@ -9,7 +9,7 @@
         "stock": "NVDA",
         "indices": [],
         "correlated_stocks":["INTC"],
-        "data_output_base_dir": "./files/technical/{}"
+        "data_output_base_dir": "./files/ohlcv/{}/{}"
     },
     "economy":{
         "data_output_base_dir": "./files/economy/",
