@@ -19,3 +19,13 @@
     - cd model/lstm
     - make sure you are reading the right file
     - python3 lstm.py
+
+
+# github
+1. generate a key locally
+    1.1. ssh-keygen -t rsa -b 4096 -C "mahessaragheb@gmail.com"
+    1.2.  eval "$(ssh-agent -s)"
+    1.3.  ssh-add ~/.ssh/id_rsa
+    1.4. cat ~/.ssh/id_rsa.pub
+2. update or add the key in github settings
+3. ssh -T git@github.com
