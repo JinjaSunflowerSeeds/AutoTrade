@@ -1,0 +1,11 @@
+Stock: NVDA, 
+Interval: 1m, 
+Lookback: 5, 
+Indices: [], 
+Correlated Stocks: ['INTC'], 
+Data Output Base Dir: ./files/technical/NVDA
+ ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Data engine starting...
+ Getting data NVDA...
+  -> Existing data found: ./files/technical/NVDA/NVDA_ohlcv_1m.csv
+Index(['index'], dtype='object')
