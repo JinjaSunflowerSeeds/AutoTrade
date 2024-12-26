@@ -7,12 +7,12 @@
     "ticker":
     {
         "stock": "NVDA",
-        "indices": [],
-        "correlated_stocks":["INTC"],
+        "indices": ["SPY", "BOTZ", "SMH", "XLK"],
+        "correlated_stocks":["INTC", "AMD", "AVGO"],
         "data_output_base_dir": "./files/ohlcv/{}/{}"
     },
     "economy":{
-        "data_output_base_dir": "./files/economy/",
+        "data_output_base_dir": "./files/economy/{}",
         "fred_api_key": "./files/api_keys/fred/key.txt"
     },
     "fundamentals":{

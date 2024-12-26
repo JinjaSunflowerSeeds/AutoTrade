@@ -254,17 +254,17 @@ Data Output Base Dir: ./files/ohlcv/AVGO/1m
 2024-12-25 15:55:33,819 - ohlcv - INFO - driver - Data engine starting...
 2024-12-25 15:55:33,819 - ohlcv - INFO - driver - Data engine starting...
 2024-12-25 15:55:33,819 - ohlcv - INFO - driver - Data engine starting...
+2024-12-25 15:55:33,819 - ohlcv - INFO - download_data -  Getting data SPY...
 2024-12-25 15:55:33,819 - ohlcv - INFO - download_data -  Getting data AMD...
+2024-12-25 15:55:33,819 - ohlcv - INFO - driver - Data engine starting...
+2024-12-25 15:55:33,819 - ohlcv - INFO - driver - Data engine starting...
 2024-12-25 15:55:33,819 - ohlcv - INFO - driver - Data engine starting...
 2024-12-25 15:55:33,819 - ohlcv - INFO - driver - Data engine starting...
 2024-12-25 15:55:33,819 - ohlcv - INFO - download_data -  Getting data XLK...
 2024-12-25 15:55:33,819 - ohlcv - INFO - download_data -  Getting data BOTZ...
-2024-12-25 15:55:33,819 - ohlcv - INFO - driver - Data engine starting...
-2024-12-25 15:55:33,819 - ohlcv - INFO - download_data -  Getting data INTC...
 2024-12-25 15:55:33,819 - ohlcv - INFO - download_data -  Getting data NVDA...
-2024-12-25 15:55:33,819 - ohlcv - INFO - driver - Data engine starting...
+2024-12-25 15:55:33,819 - ohlcv - INFO - download_data -  Getting data INTC...
 2024-12-25 15:55:33,819 - ohlcv - INFO - download_data -  Getting data SMH...
-2024-12-25 15:55:33,819 - ohlcv - INFO - download_data -  Getting data SPY...
 2024-12-25 15:55:33,819 - ohlcv - INFO - download_data -  Getting data AVGO...
 2024-12-25 15:55:34,814 - ohlcv - INFO - download_data -   -> XLK downloaded: (1380, 5), 2024-12-19 09:30:00-05:00, 2024-12-24 12:59:00-05:00
 2024-12-25 15:55:34,814 - ohlcv - INFO - log_stats -  Stats: 
@@ -374,26 +374,6 @@ dtype: object
 2024-12-25 15:55:34,871 - ohlcv - INFO - log_stats -  Stats: 
 2024-12-25 15:55:34,871 - ohlcv - INFO - log_stats -   -> Number of rows: 1380
 2024-12-25 15:55:34,871 - ohlcv - INFO - log_stats -   -> Number of columns: 5
-2024-12-25 15:55:34,871 - ohlcv - INFO - log_stats -   -> Column names: Index(['Open', 'High', 'Low', 'Close', 'Volume'], dtype='object')
-2024-12-25 15:55:34,871 - ohlcv - INFO - log_stats -   -> dtype:
- Open      float64
-High      float64
-Low       float64
-Close     float64
-Volume      int64
-dtype: object
-2024-12-25 15:55:34,872 - ohlcv - INFO - log_stats -   -> Info:
- None
-2024-12-25 15:55:34,873 - ohlcv - INFO - log_stats -   -> nulls:
- Open      8
-High      8
-Low       8
-Close     8
-Volume    0
-dtype: int64
-2024-12-25 15:55:34,873 - ohlcv - INFO - set_data_type -  Setting data types...
-2024-12-25 15:55:34,874 - ohlcv - INFO - log_stats -   -> Info:
- None
 2024-12-25 15:55:34,862 - ohlcv - INFO - export_data -                                 Open       High        Low      Close   Volume
 Date                                                                          
 2024-12-19 09:30:00-05:00  19.525000  19.690001  19.495001  19.664000  3526104
@@ -409,18 +389,14 @@ Date
 2024-12-24 12:59:00-05:00  20.344999  20.400000  20.340000  20.389999  1194375
 
 [1380 rows x 5 columns]
-2024-12-25 15:55:34,874 - ohlcv - INFO - sanity_check - 1380
-2024-12-25 15:55:34,874 - ohlcv - INFO - log_stats -   -> nulls:
- Open      6
-High      6
-Low       6
-Close     6
-Volume    0
-dtype: int64
-2024-12-25 15:55:34,874 - ohlcv - INFO - set_data_type -  Setting data types...
-2024-12-25 15:55:34,874 - ohlcv - INFO - export_data -  Exporting csv to ./files/ohlcv/AVGO/1m/2024_12_19_0930_to_2024_12_24_1259.csv
-2024-12-25 15:55:34,875 - ohlcv - INFO - sanity_check - 1380
-2024-12-25 15:55:34,875 - ohlcv - INFO - export_data -  Exporting csv to ./files/ohlcv/AMD/1m/2024_12_19_0930_to_2024_12_24_1259.csv
+2024-12-25 15:55:34,871 - ohlcv - INFO - log_stats -   -> Column names: Index(['Open', 'High', 'Low', 'Close', 'Volume'], dtype='object')
+2024-12-25 15:55:34,871 - ohlcv - INFO - log_stats -   -> dtype:
+ Open      float64
+High      float64
+Low       float64
+Close     float64
+Volume      int64
+dtype: object
 2024-12-25 15:55:34,862 - ohlcv - INFO - export_data -                                  Open        High  ...       Close    Volume
 Date                                               ...                      
 2024-12-19 09:30:00-05:00  131.720001  131.899994  ...  131.380005  11679906
@@ -436,8 +412,30 @@ Date                                               ...
 2024-12-24 12:59:00-05:00  140.035004  140.350006  ...  140.350006   1647672
 
 [1380 rows x 5 columns]
-2024-12-25 15:55:34,885 - ohlcv - INFO - consolidate_data - Consolidating data...
-2024-12-25 15:55:34,885 - ohlcv - INFO - consolidate_data - Combining directory: ./files/ohlcv/INTC/1m
+2024-12-25 15:55:34,872 - ohlcv - INFO - log_stats -   -> Info:
+ None
+2024-12-25 15:55:34,873 - ohlcv - INFO - log_stats -   -> nulls:
+ Open      8
+High      8
+Low       8
+Close     8
+Volume    0
+dtype: int64
+2024-12-25 15:55:34,873 - ohlcv - INFO - set_data_type -  Setting data types...
+2024-12-25 15:55:34,874 - ohlcv - INFO - log_stats -   -> Info:
+ None
+2024-12-25 15:55:34,874 - ohlcv - INFO - sanity_check - 1380
+2024-12-25 15:55:34,874 - ohlcv - INFO - log_stats -   -> nulls:
+ Open      6
+High      6
+Low       6
+Close     6
+Volume    0
+dtype: int64
+2024-12-25 15:55:34,874 - ohlcv - INFO - set_data_type -  Setting data types...
+2024-12-25 15:55:34,874 - ohlcv - INFO - export_data -  Exporting csv to ./files/ohlcv/AVGO/1m/2024_12_19_0930_to_2024_12_24_1259.csv
+2024-12-25 15:55:34,875 - ohlcv - INFO - sanity_check - 1380
+2024-12-25 15:55:34,875 - ohlcv - INFO - export_data -  Exporting csv to ./files/ohlcv/AMD/1m/2024_12_19_0930_to_2024_12_24_1259.csv
 2024-12-25 15:55:34,875 - ohlcv - INFO - export_data -                                  Open        High  ...       Close   Volume
 Date                                               ...                     
 2024-12-19 09:30:00-05:00  227.994995  228.050003  ...  226.050003  2099469
@@ -468,6 +466,8 @@ Date                                               ...
 2024-12-24 12:59:00-05:00  126.120003  126.349998  ...  126.305000   370618
 
 [1380 rows x 5 columns]
+2024-12-25 15:55:34,885 - ohlcv - INFO - consolidate_data - Consolidating data...
+2024-12-25 15:55:34,885 - ohlcv - INFO - consolidate_data - Combining directory: ./files/ohlcv/INTC/1m
 2024-12-25 15:55:34,886 - ohlcv - INFO - consolidate_data - Consolidating data...
 2024-12-25 15:55:34,887 - ohlcv - INFO - consolidate_data - Combining directory: ./files/ohlcv/NVDA/1m
 2024-12-25 15:55:34,887 - ohlcv - INFO - consolidate_data -  -> Combined file=(1380, 6)
@@ -618,102 +618,3 @@ Date                                               ...
 2024-12-25 15:55:35,144 - ohlcv - INFO - driver - Success downloads!
 2024-12-25 15:55:35,148 - ohlcv - INFO - consolidate_data -  ->Exported combined CSV: ./files/ohlcv/SMH/1m/combined.csv =>(1380, 6)
 2024-12-25 15:55:35,148 - ohlcv - INFO - driver - Success downloads!
-[None, None, None, None, None, None, None, None]
-OHLCV done
- ========================================================================================================================================================================================================
-<class 'pandas.core.frame.DataFrame'>
-DatetimeIndex: 1380 entries, 2024-12-19 09:30:00-05:00 to 2024-12-24 12:59:00-05:00
-Data columns (total 5 columns):
- #   Column  Non-Null Count  Dtype  
----  ------  --------------  -----  
- 0   Open    1359 non-null   float64
- 1   High    1359 non-null   float64
- 2   Low     1359 non-null   float64
- 3   Close   1359 non-null   float64
- 4   Volume  1380 non-null   int64  
-dtypes: float64(4), int64(1)
-memory usage: 64.7 KB
-<class 'pandas.core.frame.DataFrame'>
-DatetimeIndex: 1380 entries, 2024-12-19 09:30:00-05:00 to 2024-12-24 12:59:00-05:00
-Data columns (total 5 columns):
- #   Column  Non-Null Count  Dtype  
----  ------  --------------  -----  
- 0   Open    1372 non-null   float64
- 1   High    1372 non-null   float64
- 2   Low     1372 non-null   float64
- 3   Close   1372 non-null   float64
- 4   Volume  1380 non-null   int64  
-dtypes: float64(4), int64(1)
-memory usage: 64.7 KB
-<class 'pandas.core.frame.DataFrame'>
-DatetimeIndex: 1380 entries, 2024-12-19 09:30:00-05:00 to 2024-12-24 12:59:00-05:00
-Data columns (total 5 columns):
- #   Column  Non-Null Count  Dtype  
----  ------  --------------  -----  
- 0   Open    1105 non-null   float64
- 1   High    1105 non-null   float64
- 2   Low     1105 non-null   float64
- 3   Close   1105 non-null   float64
- 4   Volume  1380 non-null   int64  
-dtypes: float64(4), int64(1)
-memory usage: 64.7 KB
-<class 'pandas.core.frame.DataFrame'>
-DatetimeIndex: 1380 entries, 2024-12-19 09:30:00-05:00 to 2024-12-24 12:59:00-05:00
-Data columns (total 5 columns):
- #   Column  Non-Null Count  Dtype  
----  ------  --------------  -----  
- 0   Open    1372 non-null   float64
- 1   High    1372 non-null   float64
- 2   Low     1372 non-null   float64
- 3   Close   1372 non-null   float64
- 4   Volume  1380 non-null   int64  
-dtypes: float64(4), int64(1)
-memory usage: 64.7 KB
-<class 'pandas.core.frame.DataFrame'>
-DatetimeIndex: 1380 entries, 2024-12-19 09:30:00-05:00 to 2024-12-24 12:59:00-05:00
-Data columns (total 5 columns):
- #   Column  Non-Null Count  Dtype  
----  ------  --------------  -----  
- 0   Open    1374 non-null   float64
- 1   High    1374 non-null   float64
- 2   Low     1374 non-null   float64
- 3   Close   1374 non-null   float64
- 4   Volume  1380 non-null   int64  
-dtypes: float64(4), int64(1)
-memory usage: 64.7 KB
-<class 'pandas.core.frame.DataFrame'>
-DatetimeIndex: 1380 entries, 2024-12-19 09:30:00-05:00 to 2024-12-24 12:59:00-05:00
-Data columns (total 5 columns):
- #   Column  Non-Null Count  Dtype  
----  ------  --------------  -----  
- 0   Open    1372 non-null   float64
- 1   High    1372 non-null   float64
- 2   Low     1372 non-null   float64
- 3   Close   1372 non-null   float64
- 4   Volume  1380 non-null   int64  
-dtypes: float64(4), int64(1)
-memory usage: 64.7 KB
-<class 'pandas.core.frame.DataFrame'>
-DatetimeIndex: 1380 entries, 2024-12-19 09:30:00-05:00 to 2024-12-24 12:59:00-05:00
-Data columns (total 5 columns):
- #   Column  Non-Null Count  Dtype  
----  ------  --------------  -----  
- 0   Open    1372 non-null   float64
- 1   High    1372 non-null   float64
- 2   Low     1372 non-null   float64
- 3   Close   1372 non-null   float64
- 4   Volume  1380 non-null   int64  
-dtypes: float64(4), int64(1)
-memory usage: 64.7 KB
-<class 'pandas.core.frame.DataFrame'>
-DatetimeIndex: 1380 entries, 2024-12-19 09:30:00-05:00 to 2024-12-24 12:59:00-05:00
-Data columns (total 5 columns):
- #   Column  Non-Null Count  Dtype  
----  ------  --------------  -----  
- 0   Open    1359 non-null   float64
- 1   High    1359 non-null   float64
- 2   Low     1359 non-null   float64
- 3   Close   1359 non-null   float64
- 4   Volume  1380 non-null   int64  
-dtypes: float64(4), int64(1)
-memory usage: 64.7 KB

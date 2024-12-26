@@ -32,4 +32,4 @@
 4. git add.
 5. git commit -m "msg"
 6. git push -u origin main
-Each time you need to run 1.2 and 1.3 steps to have the agent with github identity
+Each time you need to run 1.2 and 1.3 (and maybe 3) steps to have the agent with github identity
