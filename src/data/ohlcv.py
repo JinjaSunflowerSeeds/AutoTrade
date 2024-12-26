@@ -143,7 +143,7 @@ class OHLCV(OHLCVBase):
             self.set_data_type()
             self.sanity_check()
             self.export_data()
-            self.consolidate_data()
+            # self.consolidate_data()
             self.logger.info("Success downloads!")
         except Exception as e:
             self.logger.error(e)

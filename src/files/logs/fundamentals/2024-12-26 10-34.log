@@ -1,0 +1,22 @@
+2024-12-26 10:34:05,432 - fundamentals - INFO - run - Scraping data from https://www.macrotrends.net/stocks/charts/NVDA/nvidia/income-statement?freq=Q...
+2024-12-26 10:34:05,611 - fundamentals - INFO - save_to_csv - Saving data to ./files/fundamentals/NVDA
+2024-12-26 10:34:05,615 - fundamentals - INFO - save_to_csv - Data successfully saved to ./files/fundamentals/NVDA/financial/2009-01-31_to_2024-10-31.csv
+2024-12-26 10:34:05,616 - fundamentals - INFO - run - Fetching historical data for NVDA...
+2024-12-26 10:34:08,072 - fundamentals - INFO - fetch_data - Error fetching historical data: 'Ticker' object has no attribute 'share_count'
+2024-12-26 10:34:08,074 - fundamentals - INFO - save_to_csv - Saved dividends to ./files/fundamentals/NVDA/dividends/2012_11_20_to_2024_12_05.csv
+2024-12-26 10:34:08,075 - fundamentals - INFO - save_to_csv - Saved splits to ./files/fundamentals/NVDA/splits/2000_06_27_to_2024_06_10.csv
+2024-12-26 10:34:08,076 - fundamentals - INFO - save_to_csv - Saved quarterly_income_stmt to ./files/fundamentals/NVDA/quarterly_income_stmt/2023_04_30_to_2024_10_31.csv
+2024-12-26 10:34:08,077 - fundamentals - INFO - save_to_csv - Saved balance_sheet to ./files/fundamentals/NVDA/balance_sheet/2020_01_31_to_2024_01_31.csv
+2024-12-26 10:34:08,079 - fundamentals - INFO - save_to_csv - Saved cashflow to ./files/fundamentals/NVDA/cashflow/2020_01_31_to_2024_01_31.csv
+2024-12-26 10:34:08,079 - fundamentals - INFO - save_to_csv - Error saving historical data: 'NoneType' object has no attribute 'empty'
+2024-12-26 10:34:37,389 - fundamentals - INFO - run - Scraping data from https://www.macrotrends.net/stocks/charts/NVDA/nvidia/income-statement?freq=Q...
+2024-12-26 10:34:37,571 - fundamentals - INFO - save_to_csv - Saving data to ./files/fundamentals/NVDA
+2024-12-26 10:34:37,608 - fundamentals - INFO - save_to_csv - Data successfully saved to ./files/fundamentals/NVDA/financial/2009-01-31_to_2024-10-31.csv
+2024-12-26 10:34:37,609 - fundamentals - INFO - run - Fetching historical data for NVDA...
+2024-12-26 10:34:40,269 - fundamentals - INFO - fetch_data - Error fetching historical data: 'Ticker' object has no attribute 'share_count'
+2024-12-26 10:34:40,271 - fundamentals - INFO - save_to_csv - Saved dividends to ./files/fundamentals/NVDA/dividends/2012_11_20_to_2024_12_05.csv
+2024-12-26 10:34:40,272 - fundamentals - INFO - save_to_csv - Saved splits to ./files/fundamentals/NVDA/splits/2000_06_27_to_2024_06_10.csv
+2024-12-26 10:34:40,274 - fundamentals - INFO - save_to_csv - Saved quarterly_income_stmt to ./files/fundamentals/NVDA/quarterly_income_stmt/2023_04_30_to_2024_10_31.csv
+2024-12-26 10:34:40,275 - fundamentals - INFO - save_to_csv - Saved balance_sheet to ./files/fundamentals/NVDA/balance_sheet/2020_01_31_to_2024_01_31.csv
+2024-12-26 10:34:40,276 - fundamentals - INFO - save_to_csv - Saved cashflow to ./files/fundamentals/NVDA/cashflow/2020_01_31_to_2024_01_31.csv
+2024-12-26 10:34:40,276 - fundamentals - INFO - save_to_csv - Error saving historical data: 'NoneType' object has no attribute 'empty'

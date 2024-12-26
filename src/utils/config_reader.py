@@ -26,7 +26,16 @@ def get_fundamentals_data_conf(conf_file="./config/data_conf.json"):
         x=json.load(f)
         data = x['fundamentals']
         interval=x["interval"]
-    return data['data_output_base_dir'],int(interval["lookback"])
+        tickers = x['ticker']
+    
+    stock= tickers['stock']
+    company= tickers['company_name']
+    # indices= tickers['indices']
+    # correlated_stocks= tickers['correlated_stocks']
+    data_output_base_dir=data['data_output_base_dir']#.format(stock)
+    _lookback= int(interval["lookback"])
+    # interval=interval["interval"]
+    return stock, company, data_output_base_dir, _lookback
 
 def get_merger_output_file(conf_file="./config/data_conf.json"):
     with open(conf_file) as f:

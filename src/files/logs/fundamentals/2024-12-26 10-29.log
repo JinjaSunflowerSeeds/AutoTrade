@@ -1,0 +1,16 @@
+2024-12-26 10:29:06,161 - fundamentals - INFO - run - Scraping data from https://www.macrotrends.net/stocks/charts/NVDA/nvidia/income-statement?freq=Q...
+2024-12-26 10:29:06,484 - fundamentals - INFO - save_to_csv - Saving data to ./files/fundamentals/NVDA
+2024-12-26 10:29:06,489 - fundamentals - INFO - save_to_csv - Data successfully saved to ./files/fundamentals/NVDA/financial/2009-01-31_to_2024-10-31.csv
+2024-12-26 10:29:06,490 - fundamentals - INFO - run - Fetching historical data for NVDA...
+2024-12-26 10:29:09,162 - fundamentals - INFO - fetch_data - Error fetching historical data: Pandas requires version '4.11.2' or newer of 'bs4' (version '4.11.1' currently installed).
+2024-12-26 10:29:09,165 - fundamentals - INFO - save_to_csv - Saved dividends to ./files/fundamentals/NVDA/dividends/2012_11_20_to_2024_12_05.csv
+2024-12-26 10:29:09,166 - fundamentals - INFO - save_to_csv - Saved splits to ./files/fundamentals/NVDA/splits/2000_06_27_to_2024_06_10.csv
+2024-12-26 10:29:09,174 - fundamentals - INFO - save_to_csv - Error saving historical data: 'str' object has no attribute 'strftime'
+2024-12-26 10:29:38,103 - fundamentals - INFO - run - Scraping data from https://www.macrotrends.net/stocks/charts/NVDA/nvidia/income-statement?freq=Q...
+2024-12-26 10:29:38,293 - fundamentals - INFO - save_to_csv - Saving data to ./files/fundamentals/NVDA
+2024-12-26 10:29:38,297 - fundamentals - INFO - save_to_csv - Data successfully saved to ./files/fundamentals/NVDA/financial/2009-01-31_to_2024-10-31.csv
+2024-12-26 10:29:38,298 - fundamentals - INFO - run - Fetching historical data for NVDA...
+2024-12-26 10:29:40,633 - fundamentals - INFO - fetch_data - Error fetching historical data: Pandas requires version '4.11.2' or newer of 'bs4' (version '4.11.1' currently installed).
+2024-12-26 10:29:40,636 - fundamentals - INFO - save_to_csv - Saved dividends to ./files/fundamentals/NVDA/dividends/2012_11_20_to_2024_12_05.csv
+2024-12-26 10:29:40,641 - fundamentals - INFO - save_to_csv - Saved splits to ./files/fundamentals/NVDA/splits/2000_06_27_to_2024_06_10.csv
+2024-12-26 10:29:40,649 - fundamentals - INFO - save_to_csv - Error saving historical data: 'str' object has no attribute 'strftime'

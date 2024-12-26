@@ -1,0 +1,10 @@
+2024-12-26 10:32:05,373 - fundamentals - INFO - run - Scraping data from https://www.macrotrends.net/stocks/charts/NVDA/nvidia/income-statement?freq=Q...
+2024-12-26 10:32:05,563 - fundamentals - INFO - save_to_csv - Saving data to ./files/fundamentals/NVDA
+2024-12-26 10:32:05,568 - fundamentals - INFO - save_to_csv - Data successfully saved to ./files/fundamentals/NVDA/financial/2009-01-31_to_2024-10-31.csv
+2024-12-26 10:32:05,569 - fundamentals - INFO - run - Fetching historical data for NVDA...
+2024-12-26 10:32:08,166 - fundamentals - INFO - fetch_data - Error fetching historical data: Pandas requires version '4.11.2' or newer of 'bs4' (version '4.11.1' currently installed).
+2024-12-26 10:32:08,168 - fundamentals - INFO - save_to_csv - Saved dividends to ./files/fundamentals/NVDA/dividends/2012_11_20_to_2024_12_05.csv
+2024-12-26 10:32:08,169 - fundamentals - INFO - save_to_csv - Saved splits to ./files/fundamentals/NVDA/splits/2000_06_27_to_2024_06_10.csv
+2024-12-26 10:32:08,171 - fundamentals - INFO - save_to_csv - Saved quarterly_income_stmt to ./files/fundamentals/NVDA/quarterly_income_stmt/2023_04_30_to_2024_10_31.csv
+2024-12-26 10:32:08,173 - fundamentals - INFO - save_to_csv - Saved balance_sheet to ./files/fundamentals/NVDA/balance_sheet/2020_01_31_to_2024_01_31.csv
+2024-12-26 10:32:08,174 - fundamentals - INFO - save_to_csv - Saved cashflow to ./files/fundamentals/NVDA/cashflow/2020_01_31_to_2024_01_31.csv

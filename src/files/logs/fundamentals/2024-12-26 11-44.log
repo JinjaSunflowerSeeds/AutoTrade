@@ -1,0 +1,48 @@
+2024-12-26 11:44:18,568 - fundamentals - INFO - run - Scraping data from https://www.macrotrends.net/stocks/charts/NVDA/nvidia/income-statement?freq=Q...
+2024-12-26 11:44:18,751 - fundamentals - INFO - save_to_csv - Saving data to ./files/fundamentals/NVDA
+2024-12-26 11:44:18,756 - fundamentals - INFO - save_to_csv - Data successfully saved to ./files/fundamentals/NVDA/financial/2009-01-31_to_2024-10-31.csv
+2024-12-26 11:44:18,757 - fundamentals - INFO - run - Fetching historical data for NVDA...
+2024-12-26 11:44:22,358 - fundamentals - INFO - fetch_data - 2024-12-27
+2024-12-26 11:44:22,504 - fundamentals - INFO - fetch_data - 'DataFrame' object has no attribute 'append'
+2024-12-26 11:44:22,504 - fundamentals - INFO - fetch_data - 2025-01-03
+2024-12-26 11:44:22,669 - fundamentals - INFO - fetch_data - 'DataFrame' object has no attribute 'append'
+2024-12-26 11:44:22,669 - fundamentals - INFO - fetch_data - 2025-01-10
+2024-12-26 11:44:22,826 - fundamentals - INFO - fetch_data - 'DataFrame' object has no attribute 'append'
+2024-12-26 11:44:22,826 - fundamentals - INFO - fetch_data - 2025-01-17
+2024-12-26 11:44:23,225 - fundamentals - INFO - fetch_data - 'DataFrame' object has no attribute 'append'
+2024-12-26 11:44:23,226 - fundamentals - INFO - fetch_data - 2025-01-24
+2024-12-26 11:44:23,380 - fundamentals - INFO - fetch_data - 'DataFrame' object has no attribute 'append'
+2024-12-26 11:44:23,380 - fundamentals - INFO - fetch_data - 2025-01-31
+2024-12-26 11:44:23,547 - fundamentals - INFO - fetch_data - 'DataFrame' object has no attribute 'append'
+2024-12-26 11:44:23,547 - fundamentals - INFO - fetch_data - 2025-02-21
+2024-12-26 11:44:23,868 - fundamentals - INFO - fetch_data - 'DataFrame' object has no attribute 'append'
+2024-12-26 11:44:23,868 - fundamentals - INFO - fetch_data - 2025-03-21
+2024-12-26 11:44:24,088 - fundamentals - INFO - fetch_data - 'DataFrame' object has no attribute 'append'
+2024-12-26 11:44:24,088 - fundamentals - INFO - fetch_data - 2025-04-17
+2024-12-26 11:44:24,227 - fundamentals - INFO - fetch_data - 'DataFrame' object has no attribute 'append'
+2024-12-26 11:44:24,228 - fundamentals - INFO - fetch_data - 2025-05-16
+2024-12-26 11:44:24,354 - fundamentals - INFO - fetch_data - 'DataFrame' object has no attribute 'append'
+2024-12-26 11:44:24,354 - fundamentals - INFO - fetch_data - 2025-06-20
+2024-12-26 11:44:24,618 - fundamentals - INFO - fetch_data - 'DataFrame' object has no attribute 'append'
+2024-12-26 11:44:24,618 - fundamentals - INFO - fetch_data - 2025-07-18
+2024-12-26 11:44:24,772 - fundamentals - INFO - fetch_data - 'DataFrame' object has no attribute 'append'
+2024-12-26 11:44:24,772 - fundamentals - INFO - fetch_data - 2025-08-15
+2024-12-26 11:44:24,911 - fundamentals - INFO - fetch_data - 'DataFrame' object has no attribute 'append'
+2024-12-26 11:44:24,911 - fundamentals - INFO - fetch_data - 2025-09-19
+2024-12-26 11:44:25,088 - fundamentals - INFO - fetch_data - 'DataFrame' object has no attribute 'append'
+2024-12-26 11:44:25,088 - fundamentals - INFO - fetch_data - 2025-12-19
+2024-12-26 11:44:25,374 - fundamentals - INFO - fetch_data - 'DataFrame' object has no attribute 'append'
+2024-12-26 11:44:25,374 - fundamentals - INFO - fetch_data - 2026-01-16
+2024-12-26 11:44:25,647 - fundamentals - INFO - fetch_data - 'DataFrame' object has no attribute 'append'
+2024-12-26 11:44:25,647 - fundamentals - INFO - fetch_data - 2026-06-18
+2024-12-26 11:44:25,884 - fundamentals - INFO - fetch_data - 'DataFrame' object has no attribute 'append'
+2024-12-26 11:44:25,884 - fundamentals - INFO - fetch_data - 2026-09-18
+2024-12-26 11:44:26,041 - fundamentals - INFO - fetch_data - 'DataFrame' object has no attribute 'append'
+2024-12-26 11:44:26,041 - fundamentals - INFO - fetch_data - 2026-12-18
+2024-12-26 11:44:26,399 - fundamentals - INFO - fetch_data - 'DataFrame' object has no attribute 'append'
+2024-12-26 11:44:26,399 - fundamentals - INFO - fetch_data - 2027-01-15
+2024-12-26 11:44:26,539 - fundamentals - INFO - fetch_data - 'DataFrame' object has no attribute 'append'
+2024-12-26 11:44:26,539 - fundamentals - INFO - fetch_data - Empty DataFrame
+Columns: []
+Index: []
+2024-12-26 11:44:26,540 - fundamentals - INFO - fetch_data - ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

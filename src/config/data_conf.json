@@ -7,6 +7,7 @@
     "ticker":
     {
         "stock": "NVDA",
+        "company_name":"NVIDIA",
         "indices": ["SPY", "BOTZ", "SMH", "XLK"],
         "correlated_stocks":["INTC", "AMD", "AVGO"],
         "data_output_base_dir": "./files/ohlcv/{}/{}"
@@ -16,7 +17,7 @@
         "fred_api_key": "./files/api_keys/fred/key.txt"
     },
     "fundamentals":{
-        "data_output_base_dir": "./files/fundamentals/"
+        "data_output_base_dir": "./files/fundamentals/{}"
     },
     "merger":{
         "data_output_base_dir": "./files/training/{}_{}.csv"
