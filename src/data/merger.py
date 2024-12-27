@@ -22,9 +22,11 @@ cmd:
     python3 data/merger.py > merger.txt 2>&1 
     
     
-every dir gets combined
-we read only the required dirs and combine them
-for correlated stocks we rename the colums by appending the stock name to them to avoid merge collisions 
+Every dir gets combined into combined.csv
+We read only the combined.csv from required dirs and merge them
+For correlated stocks we rename the colums by appending the stock name to them to avoid merge collisions 
+Times will be in UTC
+Column names will be lower cased
 """
 
 logger = LoggerUtility.setup_logger(__file__)
@@ -80,7 +82,14 @@ class Merger(Consolidator):
             [i for i in self.tmp_df.columns.tolist() if not re.search("nnamed", i)]
         ]
         if self.stock not in filepath and "ohlcv" in filepath:
-            self.tmp_df.rename(columns={col: col+f'_{filepath.split("/")[-3]}' for col in self.tmp_df if col not in ['Date','date']}, inplace=True)
+            self.tmp_df.rename(
+                columns={
+                    col: col + f'_{filepath.split("/")[-3]}'
+                    for col in self.tmp_df
+                    if col not in ["Date", "date"]
+                },
+                inplace=True,
+            )
         logger.info(f"{filepath}, {self.tmp_df.shape}")
 
     def correct_date(self):
@@ -190,6 +199,14 @@ class Merger(Consolidator):
             )
         )
 
+    def export_to_csv(self):
+        dir , interval = get_merger_output_file()
+        logger.info("Exporting merged file to {}".format(dir))
+        if not os.path.exists(dir):
+            os.makedirs(dir)
+        dir+='/{}.csv'.format(interval)
+        self.df.loc[:, ~self.df.columns.str.contains("^unnamed")].to_csv(dir)
+
     def driver(self):
         (
             self.stock,
@@ -217,17 +234,11 @@ class Merger(Consolidator):
             self.merger()
         self.impute()
         self.df.columns = self.df.columns.str.lower()
-        logger.info(
-            "Exporting merged file to {}".format(
-                get_merger_output_file().format(self.stock, self.interval)
-            )
-        )
-        self.df.loc[:, ~self.df.columns.str.contains("^unnamed")].to_csv(
-            get_merger_output_file().format(self.stock, self.interval)
-        )
+        self.export_to_csv()
+        
 
 
 if __name__ == "__main__":
     m = Merger()
-    # c = Consolidator()
     m.driver()
+    logger.info("Done with merger!")

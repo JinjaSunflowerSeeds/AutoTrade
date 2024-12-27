@@ -20,7 +20,7 @@
         "data_output_base_dir": "./files/fundamentals/{}"
     },
     "merger":{
-        "data_output_base_dir": "./files/training/{}_{}.csv"
+        "data_output_base_dir": "./files/training/merger/{}"
     }
 
 }

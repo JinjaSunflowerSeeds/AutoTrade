@@ -40,4 +40,4 @@ def get_fundamentals_data_conf(conf_file="./config/data_conf.json"):
 def get_merger_output_file(conf_file="./config/data_conf.json"):
     with open(conf_file) as f:
         data = json.load(f)
-    return data['merger']['data_output_base_dir'].format(data["ticker"]["stock"], data["interval"]["interval"])
+    return data['merger']['data_output_base_dir'].format(data["ticker"]["stock"]), data["interval"]["interval"]
