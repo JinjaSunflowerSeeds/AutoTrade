@@ -1,0 +1,20 @@
+2024-12-26 14:23:04,740 - merger - INFO - consolidate_dir -  -> Combined file=(923, 2)
+2024-12-26 14:23:04,741 - merger - INFO - consolidate_dir - ['date', 'unemployment']
+2024-12-26 14:23:04,745 - merger - INFO - consolidate_dir -  ->Exported combined CSV: ./files/economy/unemployment/combined.csv =>(923, 2)
+2024-12-26 14:23:04,747 - merger - INFO - consolidate_dir -  -> Combined file=(935, 2)
+2024-12-26 14:23:04,747 - merger - INFO - consolidate_dir - ['date', 'cpi']
+2024-12-26 14:23:04,748 - merger - INFO - consolidate_dir -  ->Exported combined CSV: ./files/economy/cpi/combined.csv =>(935, 2)
+2024-12-26 14:23:04,753 - merger - INFO - consolidate_dir -  -> Combined file=(12671, 2)
+2024-12-26 14:23:04,753 - merger - INFO - consolidate_dir - ['date', 'treasury']
+2024-12-26 14:23:04,759 - merger - INFO - consolidate_dir -  ->Exported combined CSV: ./files/economy/treasury/combined.csv =>(12671, 2)
+2024-12-26 14:23:04,761 - merger - INFO - consolidate_dir -  -> Combined file=(344, 2)
+2024-12-26 14:23:04,761 - merger - INFO - consolidate_dir - ['date', 'gdp']
+2024-12-26 14:23:04,762 - merger - INFO - consolidate_dir -  ->Exported combined CSV: ./files/economy/gdp/combined.csv =>(344, 2)
+2024-12-26 14:23:04,764 - merger - INFO - consolidate_dir -  -> Combined file=(2804, 2)
+2024-12-26 14:23:04,764 - merger - INFO - consolidate_dir - ['date', 'mortgage']
+2024-12-26 14:23:04,767 - merger - INFO - consolidate_dir -  ->Exported combined CSV: ./files/economy/mortgage/combined.csv =>(2804, 2)
+2024-12-26 14:23:04,768 - merger - INFO - consolidate_dir -  -> Combined file=(254, 3)
+2024-12-26 14:23:04,768 - merger - INFO - consolidate_dir - ['date', 'score', 'rating']
+2024-12-26 14:23:04,770 - merger - INFO - consolidate_dir -  ->Exported combined CSV: ./files/economy/fear_n_greed/combined.csv =>(253, 3)
+2024-12-26 14:23:04,771 - merger - INFO - consolidate_dir -  -> Combined file=(7, 44)
+2024-12-26 14:23:04,771 - merger - INFO - consolidate_dir - ['Unnamed: 0', 'Tax Effect Of Unusual Items', 'Tax Rate For Calcs', 'Normalized EBITDA', 'Total Unusual Items', 'Total Unusual Items Excluding Goodwill', 'Net Income From Continuing Operation Net Minority Interest', 'Reconciled Depreciation', 'Reconciled Cost Of Revenue', 'EBITDA', 'EBIT', 'Net Interest Income', 'Interest Expense', 'Interest Income', 'Normalized Income', 'Net Income From Continuing And Discontinued Operation', 'Total Expenses', 'Total Operating Income As Reported', 'Diluted Average Shares', 'Basic Average Shares', 'Diluted EPS', 'Basic EPS', 'Diluted NI Availto Com Stockholders', 'Net Income Common Stockholders', 'Net Income', 'Net Income Including Noncontrolling Interests', 'Net Income Continuous Operations', 'Tax Provision', 'Pretax Income', 'Other Income Expense', 'Other Non Operating Income Expenses', 'Special Income Charges', 'Restructuring And Mergern Acquisition', 'Net Non Operating Interest Income Expense', 'Interest Expense Non Operating', 'Interest Income Non Operating', 'Operating Income', 'Operating Expense', 'Research And Development', 'Selling General And Administration', 'Gross Profit', 'Cost Of Revenue', 'Total Revenue', 'Operating Revenue']

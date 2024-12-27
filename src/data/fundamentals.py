@@ -98,6 +98,7 @@ class HistoricalPE:
                 df.index.min(),
                 df.index.max(),
             )
+            df.index.name = "date"
             df.to_csv(filepath)
             logger.info(f"Data successfully saved to {filepath}")
         except Exception as e:
@@ -152,12 +153,21 @@ class HistoricalData:
             self.data["quarterly_income_stmt"] = tk.quarterly_income_stmt.T
             self.data["balance_sheet"] = tk.balance_sheet.T
             self.data["cashflow"] = tk.cashflow.T
+            self.data["earnings_dates"] = tk.get_earnings_dates(limit=40000)
             self.data["major_holders"] = pd.DataFrame(
                 tk.major_holders.values, columns=["Share%", "Name"]
             )
             self.data["institutional_holders"] = tk.institutional_holders
             self.data["mutualfund_holders"] = tk.mutualfund_holders
-            self.data["earnings_dates"] = tk.get_earnings_dates(limit=40000)
+            self.data['major_holders']['date'] = datetime.now().strftime("%Y-%m-%d")
+            self.data['institutional_holders']['date'] = datetime.now().strftime("%Y-%m-%d")
+            self.data['mutualfund_holders']['date'] = datetime.now().strftime("%Y-%m-%d")
+            self.data['quarterly_income_stmt'].index.name = 'date'
+            self.data['share_count'].index.name = 'date'
+            self.data['dividends'].index.name = 'date'
+            self.data['splits'].index.name = 'date'
+            self.data['balance_sheet'].index.name = 'date'
+            self.data['cashflow'].index.name = 'date'
             opt_expration = pd.DataFrame(
                 tk.options, columns=["expiration"]
             ).sort_values("expiration")
@@ -167,7 +177,7 @@ class HistoricalData:
                 try:
                     opt = tk.option_chain(e)
                     call, put = opt.calls, opt.puts
-                    call["expirationDate"], put["expirationDate"] = e, e
+                    call["expirationDate"],call["date"], put["expirationDate"],put['date'] = e, e,e,e
                     call["type"], put["type"] = "call", "put"
                     calls = pd.concat([calls, call], ignore_index=True)
                     puts = pd.concat([puts, put], ignore_index=True)

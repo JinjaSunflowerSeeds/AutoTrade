@@ -74,7 +74,7 @@ class OHLCVBase:
 
     def set_data_type(self):
         self.logger.info(" Setting data types...")
-        self.df.sort_values(by="Date")
+        self.df.sort_values(by="date")
         self.df = self.df.astype(
             {"Open": float, "High": float, "Low": float, "Close": float, "Volume": int}
         )
@@ -91,25 +91,6 @@ class OHLCVBase:
             self.df.index.unique()
         ), "missing days for {}".format(t)
 
-    def consolidate_data(self):
-        self.logger.info("Consolidating data...")
-        for subdir, _, _ in os.walk(self.filepath):
-            self.logger.info(f"Combining directory: {subdir}")
-            combined_df = pd.DataFrame()
-            for file in os.listdir(subdir):
-                if file.endswith(".csv") and not file.startswith("combined"):
-                    file_path = os.path.join(subdir, file)
-                    df = pd.read_csv(file_path, index_col=None)
-                    combined_df = pd.concat([combined_df, df], ignore_index=True)
-            if not combined_df.empty:
-                output_file = os.path.join(subdir, "combined.csv")
-                self.logger.info(f" -> Combined file={combined_df.shape}")
-                combined_df.drop_duplicates("Date", inplace=True)
-                combined_df.to_csv(output_file, index=False)
-                self.logger.info(
-                    f" ->Exported combined CSV: {output_file} =>{combined_df.shape}"
-                )
-
 
 class OHLCV(OHLCVBase):
     def download_data(self):
@@ -123,8 +104,8 @@ class OHLCV(OHLCVBase):
             interval=self.interval,
             progress=False,
         )
-        if "Date" not in tmp.columns:
-            tmp.index.names = ["Date"]
+        if "date" not in tmp.columns:
+            tmp.index.names = ["date"]
         self.df = pd.concat([self.df, tmp], axis=0)
         self.logger.info(
             "  -> {} downloaded: {}, {}, {}".format(

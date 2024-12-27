@@ -1,0 +1,14 @@
+2024-12-26 13:21:08,193 - merger - INFO - consolidate_data - Consolidating data... ./files/economy
+2024-12-26 13:21:08,195 - merger - INFO - consolidate_data - Consolidating data... ./files/economy/gdp
+2024-12-26 13:21:08,196 - merger - INFO - consolidate_data - Consolidating data... ./files/economy/cpi
+2024-12-26 13:21:08,197 - merger - INFO - consolidate_data - Consolidating data... ./files/economy/fear_n_greed
+2024-12-26 13:21:08,197 - merger - INFO - consolidate_data - Consolidating data... ./files/economy/treasury
+2024-12-26 13:21:08,198 - merger - INFO - consolidate_data - Consolidating data... ./files/economy/mortgage
+2024-12-26 13:21:08,199 - merger - INFO - consolidate_data - Consolidating data... ./files/economy/unemployment
+2024-12-26 13:21:42,318 - merger - INFO - consolidate_data - Consolidating data... ./files/economy
+2024-12-26 13:21:42,318 - merger - INFO - consolidate_data - Consolidating data... ./files/economy/gdp
+2024-12-26 13:21:42,319 - merger - INFO - consolidate_data - Consolidating data... ./files/economy/cpi
+2024-12-26 13:21:42,319 - merger - INFO - consolidate_data - Consolidating data... ./files/economy/fear_n_greed
+2024-12-26 13:21:42,320 - merger - INFO - consolidate_data - Consolidating data... ./files/economy/treasury
+2024-12-26 13:21:42,320 - merger - INFO - consolidate_data - Consolidating data... ./files/economy/mortgage
+2024-12-26 13:21:42,320 - merger - INFO - consolidate_data - Consolidating data... ./files/economy/unemployment

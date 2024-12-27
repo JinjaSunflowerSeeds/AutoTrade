@@ -1,0 +1,117 @@
+2024-12-26 16:17:08,212 - merger - INFO - driver - dir to combine csv files in {dirs}
+2024-12-26 16:17:08,212 - merger - INFO - consolidate_dir - ./files/economy/treasury/1976_06_01_to_2024_12_24.csv
+2024-12-26 16:17:08,219 - merger - INFO - consolidate_dir -  -> Combined file=(12671, 2)
+2024-12-26 16:17:08,219 - merger - INFO - consolidate_dir - ['date', 'treasury']
+2024-12-26 16:17:08,233 - merger - INFO - consolidate_dir -  ->Exported combined CSV: ./files/economy/treasury/combined.csv =>(12671, 2)
+2024-12-26 16:17:08,234 - merger - INFO - consolidate_dir - ./files/economy/mortgage/1971_04_02_to_2024_12_19.csv
+2024-12-26 16:17:08,236 - merger - INFO - consolidate_dir -  -> Combined file=(2804, 2)
+2024-12-26 16:17:08,236 - merger - INFO - consolidate_dir - ['date', 'mortgage']
+2024-12-26 16:17:08,239 - merger - INFO - consolidate_dir -  ->Exported combined CSV: ./files/economy/mortgage/combined.csv =>(2804, 2)
+2024-12-26 16:17:08,239 - merger - INFO - consolidate_dir - ./files/economy/unemployment/1948_01_01_to_2024_11_01.csv
+2024-12-26 16:17:08,244 - merger - INFO - consolidate_dir -  -> Combined file=(923, 2)
+2024-12-26 16:17:08,244 - merger - INFO - consolidate_dir - ['date', 'unemployment']
+2024-12-26 16:17:08,245 - merger - INFO - consolidate_dir -  ->Exported combined CSV: ./files/economy/unemployment/combined.csv =>(923, 2)
+2024-12-26 16:17:08,245 - merger - INFO - consolidate_dir - ./files/economy/gdp/1949_01_01_to_2034_10_01.csv
+2024-12-26 16:17:08,248 - merger - INFO - consolidate_dir -  -> Combined file=(344, 2)
+2024-12-26 16:17:08,249 - merger - INFO - consolidate_dir - ['date', 'gdp']
+2024-12-26 16:17:08,253 - merger - INFO - consolidate_dir -  ->Exported combined CSV: ./files/economy/gdp/combined.csv =>(344, 2)
+2024-12-26 16:17:08,254 - merger - INFO - consolidate_dir - ./files/economy/fear_n_greed/2023-12-26_to_2024-12-24.csv
+2024-12-26 16:17:08,255 - merger - INFO - consolidate_dir -  -> Combined file=(254, 3)
+2024-12-26 16:17:08,255 - merger - INFO - consolidate_dir - ['date', 'score', 'rating']
+2024-12-26 16:17:08,261 - merger - INFO - consolidate_dir -  ->Exported combined CSV: ./files/economy/fear_n_greed/combined.csv =>(253, 3)
+2024-12-26 16:17:08,261 - merger - INFO - consolidate_dir - ./files/economy/cpi/1947_01_01_to_2024_11_01.csv
+2024-12-26 16:17:08,266 - merger - INFO - consolidate_dir -  -> Combined file=(935, 2)
+2024-12-26 16:17:08,266 - merger - INFO - consolidate_dir - ['date', 'cpi']
+2024-12-26 16:17:08,268 - merger - INFO - consolidate_dir -  ->Exported combined CSV: ./files/economy/cpi/combined.csv =>(935, 2)
+2024-12-26 16:17:08,268 - merger - INFO - consolidate_dir - ./files/fundamentals/NVDA/options/2024-12-27_to_2027-01-15.csv
+2024-12-26 16:17:08,283 - merger - INFO - consolidate_dir -  -> Combined file=(8437, 18)
+2024-12-26 16:17:08,283 - merger - INFO - consolidate_dir - ['Unnamed: 0', 'contractSymbol', 'lastTradeDate', 'strike', 'lastPrice', 'bid', 'ask', 'change', 'percentChange', 'volume', 'openInterest', 'impliedVolatility', 'inTheMoney', 'contractSize', 'currency', 'expirationDate', 'date', 'type']
+2024-12-26 16:17:08,286 - merger - INFO - consolidate_dir -  ->Exported combined CSV: ./files/fundamentals/NVDA/options/combined.csv =>(20, 18)
+2024-12-26 16:17:08,287 - merger - INFO - consolidate_dir - ./files/fundamentals/NVDA/institutional_holders/2024_12_26.csv
+2024-12-26 16:17:08,288 - merger - INFO - consolidate_dir -  -> Combined file=(10, 7)
+2024-12-26 16:17:08,288 - merger - INFO - consolidate_dir - ['Unnamed: 0', 'Holder', 'Shares', 'Date Reported', '% Out', 'Value', 'date']
+2024-12-26 16:17:08,290 - merger - INFO - consolidate_dir -  ->Exported combined CSV: ./files/fundamentals/NVDA/institutional_holders/combined.csv =>(1, 7)
+2024-12-26 16:17:08,290 - merger - INFO - consolidate_dir - ./files/fundamentals/NVDA/major_holders/2024_12_26.csv
+2024-12-26 16:17:08,291 - merger - INFO - consolidate_dir -  -> Combined file=(4, 4)
+2024-12-26 16:17:08,291 - merger - INFO - consolidate_dir - ['Unnamed: 0', 'Share%', 'Name', 'date']
+2024-12-26 16:17:08,292 - merger - INFO - consolidate_dir -  ->Exported combined CSV: ./files/fundamentals/NVDA/major_holders/combined.csv =>(1, 4)
+2024-12-26 16:17:08,292 - merger - INFO - consolidate_dir - ./files/fundamentals/NVDA/mutualfund_holders/2024_12_26.csv
+2024-12-26 16:17:08,294 - merger - INFO - consolidate_dir -  -> Combined file=(10, 7)
+2024-12-26 16:17:08,294 - merger - INFO - consolidate_dir - ['Unnamed: 0', 'Holder', 'Shares', 'Date Reported', '% Out', 'Value', 'date']
+2024-12-26 16:17:08,294 - merger - INFO - consolidate_dir -  ->Exported combined CSV: ./files/fundamentals/NVDA/mutualfund_holders/combined.csv =>(1, 7)
+2024-12-26 16:17:08,295 - merger - INFO - consolidate_dir - ./files/fundamentals/NVDA/cashflow/2020_01_31_to_2024_01_31.csv
+2024-12-26 16:17:08,296 - merger - INFO - consolidate_dir -  -> Combined file=(5, 56)
+2024-12-26 16:17:08,296 - merger - INFO - consolidate_dir - ['date', 'Free Cash Flow', 'Repurchase Of Capital Stock', 'Repayment Of Debt', 'Issuance Of Debt', 'Capital Expenditure', 'Interest Paid Supplemental Data', 'Income Tax Paid Supplemental Data', 'End Cash Position', 'Beginning Cash Position', 'Changes In Cash', 'Financing Cash Flow', 'Cash Flow From Continuing Financing Activities', 'Net Other Financing Charges', 'Proceeds From Stock Option Exercised', 'Cash Dividends Paid', 'Common Stock Dividend Paid', 'Net Common Stock Issuance', 'Common Stock Payments', 'Net Issuance Payments Of Debt', 'Net Long Term Debt Issuance', 'Long Term Debt Payments', 'Long Term Debt Issuance', 'Investing Cash Flow', 'Cash Flow From Continuing Investing Activities', 'Net Investment Purchase And Sale', 'Sale Of Investment', 'Purchase Of Investment', 'Net Business Purchase And Sale', 'Purchase Of Business', 'Net PPE Purchase And Sale', 'Sale Of PPE', 'Purchase Of PPE', 'Capital Expenditure Reported', 'Operating Cash Flow', 'Cash Flow From Continuing Operating Activities', 'Change In Working Capital', 'Change In Other Working Capital', 'Change In Other Current Liabilities', 'Change In Payables And Accrued Expense', 'Change In Accrued Expense', 'Change In Payable', 'Change In Account Payable', 'Change In Prepaid Assets', 'Change In Inventory', 'Change In Receivables', 'Changes In Account Receivables', 'Other Non Cash Items', 'Stock Based Compensation', 'Deferred Tax', 'Deferred Income Tax', 'Depreciation Amortization Depletion', 'Depreciation And Amortization', 'Operating Gains Losses', 'Gain Loss On Investment Securities', 'Net Income From Continuing Operations']
+2024-12-26 16:17:08,297 - merger - INFO - consolidate_dir -  ->Exported combined CSV: ./files/fundamentals/NVDA/cashflow/combined.csv =>(5, 56)
+2024-12-26 16:17:08,297 - merger - INFO - consolidate_dir - ./files/fundamentals/NVDA/share_count/2015_11_18_to_2024_12_14.csv
+2024-12-26 16:17:08,298 - merger - INFO - consolidate_dir -  -> Combined file=(294, 2)
+2024-12-26 16:17:08,298 - merger - INFO - consolidate_dir - ['date', 'shares']
+2024-12-26 16:17:08,300 - merger - INFO - consolidate_dir -  ->Exported combined CSV: ./files/fundamentals/NVDA/share_count/combined.csv =>(244, 2)
+2024-12-26 16:17:08,300 - merger - INFO - consolidate_dir - ./files/fundamentals/NVDA/financial/2009-01-31_to_2024-10-31.csv
+2024-12-26 16:17:08,301 - merger - INFO - consolidate_dir -  -> Combined file=(64, 20)
+2024-12-26 16:17:08,301 - merger - INFO - consolidate_dir - ['date', 'revenue', 'cost_of_goods_sold', 'gross_profit', 'r_and_d_expenses', 'sga_expenses', 'operating-expenses', 'operating-income', 'non_operating_income', 'pre-tax-income', 'income_taxes', 'income-after-taxes', 'operating_income', 'net-income', 'ebitda', 'ebit', 'basic-shares-outstanding', 'shares-outstanding', 'eps_basic', 'eps_diluted']
+2024-12-26 16:17:08,303 - merger - INFO - consolidate_dir -  ->Exported combined CSV: ./files/fundamentals/NVDA/financial/combined.csv =>(64, 20)
+2024-12-26 16:17:08,303 - merger - INFO - consolidate_dir - ./files/fundamentals/NVDA/dividends/2012_11_20_to_2024_12_05.csv
+2024-12-26 16:17:08,304 - merger - INFO - consolidate_dir -  -> Combined file=(49, 2)
+2024-12-26 16:17:08,304 - merger - INFO - consolidate_dir - ['date', 'Dividends']
+2024-12-26 16:17:08,305 - merger - INFO - consolidate_dir -  ->Exported combined CSV: ./files/fundamentals/NVDA/dividends/combined.csv =>(49, 2)
+2024-12-26 16:17:08,305 - merger - INFO - consolidate_dir - ./files/fundamentals/NVDA/splits/2000_06_27_to_2024_06_10.csv
+2024-12-26 16:17:08,306 - merger - INFO - consolidate_dir -  -> Combined file=(6, 2)
+2024-12-26 16:17:08,306 - merger - INFO - consolidate_dir - ['date', 'Stock Splits']
+2024-12-26 16:17:08,307 - merger - INFO - consolidate_dir -  ->Exported combined CSV: ./files/fundamentals/NVDA/splits/combined.csv =>(6, 2)
+2024-12-26 16:17:08,307 - merger - INFO - consolidate_dir - ./files/fundamentals/NVDA/balance_sheet/2020_01_31_to_2024_01_31.csv
+2024-12-26 16:17:08,309 - merger - INFO - consolidate_dir -  -> Combined file=(5, 85)
+2024-12-26 16:17:08,309 - merger - INFO - consolidate_dir - ['date', 'Treasury Shares Number', 'Ordinary Shares Number', 'Share Issued', 'Net Debt', 'Total Debt', 'Tangible Book Value', 'Invested Capital', 'Working Capital', 'Net Tangible Assets', 'Capital Lease Obligations', 'Common Stock Equity', 'Total Capitalization', 'Total Equity Gross Minority Interest', 'Stockholders Equity', 'Gains Losses Not Affecting Retained Earnings', 'Other Equity Adjustments', 'Treasury Stock', 'Retained Earnings', 'Additional Paid In Capital', 'Capital Stock', 'Common Stock', 'Preferred Stock', 'Total Liabilities Net Minority Interest', 'Total Non Current Liabilities Net Minority Interest', 'Other Non Current Liabilities', 'Employee Benefits', 'Tradeand Other Payables Non Current', 'Non Current Deferred Liabilities', 'Non Current Deferred Revenue', 'Non Current Deferred Taxes Liabilities', 'Long Term Debt And Capital Lease Obligation', 'Long Term Capital Lease Obligation', 'Long Term Debt', 'Current Liabilities', 'Other Current Liabilities', 'Current Deferred Liabilities', 'Current Deferred Revenue', 'Current Debt And Capital Lease Obligation', 'Current Capital Lease Obligation', 'Current Debt', 'Other Current Borrowings', 'Current Provisions', 'Payables And Accrued Expenses', 'Current Accrued Expenses', 'Interest Payable', 'Payables', 'Other Payable', 'Total Tax Payable', 'Accounts Payable', 'Total Assets', 'Total Non Current Assets', 'Other Non Current Assets', 'Non Current Prepaid Assets', 'Non Current Deferred Assets', 'Non Current Deferred Taxes Assets', 'Investments And Advances', 'Other Investments', 'Goodwill And Other Intangible Assets', 'Other Intangible Assets', 'Goodwill', 'Net PPE', 'Accumulated Depreciation', 'Gross PPE', 'Leases', 'Construction In Progress', 'Other Properties', 'Machinery Furniture Equipment', 'Buildings And Improvements', 'Land And Improvements', 'Properties', 'Current Assets', 'Other Current Assets', 'Prepaid Assets', 'Inventory', 'Finished Goods', 'Work In Process', 'Raw Materials', 'Receivables', 'Accounts Receivable', 'Allowance For Doubtful Accounts Receivable', 'Gross Accounts Receivable', 'Cash Cash Equivalents And Short Term Investments', 'Other Short Term Investments', 'Cash And Cash Equivalents']
+2024-12-26 16:17:08,310 - merger - INFO - consolidate_dir -  ->Exported combined CSV: ./files/fundamentals/NVDA/balance_sheet/combined.csv =>(5, 85)
+2024-12-26 16:17:08,310 - merger - INFO - consolidate_dir - ./files/fundamentals/NVDA/quarterly_income_stmt/2023_04_30_to_2024_10_31.csv
+2024-12-26 16:17:08,311 - merger - INFO - consolidate_dir -  -> Combined file=(7, 44)
+2024-12-26 16:17:08,311 - merger - INFO - consolidate_dir - ['date', 'Tax Effect Of Unusual Items', 'Tax Rate For Calcs', 'Normalized EBITDA', 'Total Unusual Items', 'Total Unusual Items Excluding Goodwill', 'Net Income From Continuing Operation Net Minority Interest', 'Reconciled Depreciation', 'Reconciled Cost Of Revenue', 'EBITDA', 'EBIT', 'Net Interest Income', 'Interest Expense', 'Interest Income', 'Normalized Income', 'Net Income From Continuing And Discontinued Operation', 'Total Expenses', 'Total Operating Income As Reported', 'Diluted Average Shares', 'Basic Average Shares', 'Diluted EPS', 'Basic EPS', 'Diluted NI Availto Com Stockholders', 'Net Income Common Stockholders', 'Net Income', 'Net Income Including Noncontrolling Interests', 'Net Income Continuous Operations', 'Tax Provision', 'Pretax Income', 'Other Income Expense', 'Other Non Operating Income Expenses', 'Special Income Charges', 'Restructuring And Mergern Acquisition', 'Net Non Operating Interest Income Expense', 'Interest Expense Non Operating', 'Interest Income Non Operating', 'Operating Income', 'Operating Expense', 'Research And Development', 'Selling General And Administration', 'Gross Profit', 'Cost Of Revenue', 'Total Revenue', 'Operating Revenue']
+2024-12-26 16:17:08,315 - merger - INFO - consolidate_dir -  ->Exported combined CSV: ./files/fundamentals/NVDA/quarterly_income_stmt/combined.csv =>(7, 44)
+2024-12-26 16:17:08,316 - merger - INFO - consolidate_dir - ./files/ohlcv/BOTZ/1m/2024_12_20_0930_to_2024_12_26_1559.csv
+2024-12-26 16:17:08,318 - merger - INFO - consolidate_dir - ./files/ohlcv/BOTZ/1m/2024_12_19_0930_to_2024_12_24_1259.csv
+2024-12-26 16:17:08,319 - merger - INFO - consolidate_dir -  -> Combined file=(2760, 6)
+2024-12-26 16:17:08,320 - merger - INFO - consolidate_dir - ['date', 'Open', 'High', 'Low', 'Close', 'Volume']
+2024-12-26 16:17:08,329 - merger - INFO - consolidate_dir -  ->Exported combined CSV: ./files/ohlcv/BOTZ/1m/combined.csv =>(1770, 6)
+2024-12-26 16:17:08,329 - merger - INFO - consolidate_dir - ./files/ohlcv/SMH/1m/2024_12_20_0930_to_2024_12_26_1559.csv
+2024-12-26 16:17:08,332 - merger - INFO - consolidate_dir - ./files/ohlcv/SMH/1m/2024_12_19_0930_to_2024_12_24_1259.csv
+2024-12-26 16:17:08,335 - merger - INFO - consolidate_dir -  -> Combined file=(2760, 6)
+2024-12-26 16:17:08,335 - merger - INFO - consolidate_dir - ['date', 'Open', 'High', 'Low', 'Close', 'Volume']
+2024-12-26 16:17:08,346 - merger - INFO - consolidate_dir -  ->Exported combined CSV: ./files/ohlcv/SMH/1m/combined.csv =>(1770, 6)
+2024-12-26 16:17:08,347 - merger - INFO - consolidate_dir - ./files/ohlcv/INTC/1m/2024_12_20_0930_to_2024_12_26_1559.csv
+2024-12-26 16:17:08,349 - merger - INFO - consolidate_dir - ./files/ohlcv/INTC/1m/2024_12_19_0930_to_2024_12_24_1259.csv
+2024-12-26 16:17:08,352 - merger - INFO - consolidate_dir -  -> Combined file=(2760, 6)
+2024-12-26 16:17:08,352 - merger - INFO - consolidate_dir - ['date', 'Open', 'High', 'Low', 'Close', 'Volume']
+2024-12-26 16:17:08,360 - merger - INFO - consolidate_dir -  ->Exported combined CSV: ./files/ohlcv/INTC/1m/combined.csv =>(1770, 6)
+2024-12-26 16:17:08,360 - merger - INFO - consolidate_dir - ./files/ohlcv/XLK/1m/2024_12_20_0930_to_2024_12_26_1559.csv
+2024-12-26 16:17:08,366 - merger - INFO - consolidate_dir - ./files/ohlcv/XLK/1m/2024_12_19_0930_to_2024_12_24_1259.csv
+2024-12-26 16:17:08,368 - merger - INFO - consolidate_dir -  -> Combined file=(2760, 6)
+2024-12-26 16:17:08,368 - merger - INFO - consolidate_dir - ['date', 'Open', 'High', 'Low', 'Close', 'Volume']
+2024-12-26 16:17:08,375 - merger - INFO - consolidate_dir -  ->Exported combined CSV: ./files/ohlcv/XLK/1m/combined.csv =>(1770, 6)
+2024-12-26 16:17:08,376 - merger - INFO - consolidate_dir - ./files/ohlcv/NVDA/1m/2024_12_20_0930_to_2024_12_26_1559.csv
+2024-12-26 16:17:08,385 - merger - INFO - consolidate_dir - ./files/ohlcv/NVDA/1m/2024_12_19_0930_to_2024_12_24_1259.csv
+2024-12-26 16:17:08,392 - merger - INFO - consolidate_dir -  -> Combined file=(2760, 6)
+2024-12-26 16:17:08,392 - merger - INFO - consolidate_dir - ['date', 'Open', 'High', 'Low', 'Close', 'Volume']
+2024-12-26 16:17:08,401 - merger - INFO - consolidate_dir -  ->Exported combined CSV: ./files/ohlcv/NVDA/1m/combined.csv =>(1770, 6)
+2024-12-26 16:17:08,401 - merger - INFO - consolidate_dir - ./files/ohlcv/AVGO/1m/2024_12_20_0930_to_2024_12_26_1559.csv
+2024-12-26 16:17:08,404 - merger - INFO - consolidate_dir - ./files/ohlcv/AVGO/1m/2024_12_19_0930_to_2024_12_24_1259.csv
+2024-12-26 16:17:08,406 - merger - INFO - consolidate_dir -  -> Combined file=(2760, 6)
+2024-12-26 16:17:08,406 - merger - INFO - consolidate_dir - ['date', 'Open', 'High', 'Low', 'Close', 'Volume']
+2024-12-26 16:17:08,416 - merger - INFO - consolidate_dir -  ->Exported combined CSV: ./files/ohlcv/AVGO/1m/combined.csv =>(1770, 6)
+2024-12-26 16:17:08,417 - merger - INFO - consolidate_dir - ./files/ohlcv/AMD/1m/2024_12_20_0930_to_2024_12_26_1559.csv
+2024-12-26 16:17:08,419 - merger - INFO - consolidate_dir - ./files/ohlcv/AMD/1m/2024_12_19_0930_to_2024_12_24_1259.csv
+2024-12-26 16:17:08,423 - merger - INFO - consolidate_dir -  -> Combined file=(2760, 7)
+2024-12-26 16:17:08,423 - merger - INFO - consolidate_dir - ['date', 'Open', 'High', 'Low', 'Close', 'Volume', 'Date']
+2024-12-26 16:17:08,430 - merger - INFO - consolidate_dir -  ->Exported combined CSV: ./files/ohlcv/AMD/1m/combined.csv =>(1381, 7)
+2024-12-26 16:17:08,430 - merger - INFO - consolidate_dir - ./files/ohlcv/SPY/1m/2024_12_20_0930_to_2024_12_26_1559.csv
+2024-12-26 16:17:08,434 - merger - INFO - consolidate_dir - ./files/ohlcv/SPY/1m/2024_12_19_0930_to_2024_12_24_1259.csv
+2024-12-26 16:17:08,436 - merger - INFO - consolidate_dir -  -> Combined file=(2760, 6)
+2024-12-26 16:17:08,436 - merger - INFO - consolidate_dir - ['date', 'Open', 'High', 'Low', 'Close', 'Volume']
+2024-12-26 16:17:08,444 - merger - INFO - consolidate_dir -  ->Exported combined CSV: ./files/ohlcv/SPY/1m/combined.csv =>(1770, 6)
+2024-12-26 16:17:08,445 - merger - INFO - get_data_files -    Loaded 8 ohlcv files=> ['./files/ohlcv/NVDA/1m/combined.csv', './files/ohlcv/INTC/1m/combined.csv', './files/ohlcv/AMD/1m/combined.csv', './files/ohlcv/AVGO/1m/combined.csv', './files/ohlcv/SPY/1m/combined.csv', './files/ohlcv/BOTZ/1m/combined.csv', './files/ohlcv/SMH/1m/combined.csv', './files/ohlcv/XLK/1m/combined.csv']
+2024-12-26 16:17:08,446 - merger - INFO - get_data_files -    Loaded 6 economy files=> ['./files/economy/gdp/combined.csv', './files/economy/cpi/combined.csv', './files/economy/fear_n_greed/combined.csv', './files/economy/treasury/combined.csv', './files/economy/mortgage/combined.csv', './files/economy/unemployment/combined.csv']
+2024-12-26 16:17:08,447 - merger - INFO - get_data_files -    Loaded 11 fundamental files=> ['./files/fundamentals/NVDA/options/combined.csv', './files/fundamentals/NVDA/major_holders/combined.csv', './files/fundamentals/NVDA/mutualfund_holders/combined.csv', './files/fundamentals/NVDA/institutional_holders/combined.csv', './files/fundamentals/NVDA/financial/combined.csv', './files/fundamentals/NVDA/cashflow/combined.csv', './files/fundamentals/NVDA/quarterly_income_stmt/combined.csv', './files/fundamentals/NVDA/balance_sheet/combined.csv', './files/fundamentals/NVDA/dividends/combined.csv', './files/fundamentals/NVDA/share_count/combined.csv', './files/fundamentals/NVDA/splits/combined.csv']
+2024-12-26 16:17:08,450 - merger - INFO - read_data - ./files/ohlcv/NVDA/1m/combined.csv, (1770, 6)
+2024-12-26 16:17:08,469 - merger - INFO - merger - merged df shape=(1770, 6)
+2024-12-26 16:17:08,472 - merger - INFO - read_data - ./files/ohlcv/INTC/1m/combined.csv, (1770, 6)
+2024-12-26 16:17:08,487 - merger - INFO - merger - merged df shape=(1770, 11)
+2024-12-26 16:17:08,490 - merger - INFO - read_data - ./files/ohlcv/AMD/1m/combined.csv, (1381, 7)

@@ -1,0 +1,20 @@
+2024-12-26 14:37:43,256 - merger - INFO - consolidate_dir -  -> Combined file=(344, 2)
+2024-12-26 14:37:43,256 - merger - INFO - consolidate_dir - ['date', 'gdp']
+2024-12-26 14:37:43,259 - merger - INFO - consolidate_dir -  ->Exported combined CSV: ./files/economy/gdp/combined.csv =>(344, 2)
+2024-12-26 14:37:43,265 - merger - INFO - consolidate_dir -  -> Combined file=(254, 3)
+2024-12-26 14:37:43,265 - merger - INFO - consolidate_dir - ['date', 'score', 'rating']
+2024-12-26 14:37:43,267 - merger - INFO - consolidate_dir -  ->Exported combined CSV: ./files/economy/fear_n_greed/combined.csv =>(253, 3)
+2024-12-26 14:37:43,271 - merger - INFO - consolidate_dir -  -> Combined file=(2804, 2)
+2024-12-26 14:37:43,271 - merger - INFO - consolidate_dir - ['date', 'mortgage']
+2024-12-26 14:37:43,273 - merger - INFO - consolidate_dir -  ->Exported combined CSV: ./files/economy/mortgage/combined.csv =>(2804, 2)
+2024-12-26 14:37:43,279 - merger - INFO - consolidate_dir -  -> Combined file=(12671, 2)
+2024-12-26 14:37:43,279 - merger - INFO - consolidate_dir - ['date', 'treasury']
+2024-12-26 14:37:43,286 - merger - INFO - consolidate_dir -  ->Exported combined CSV: ./files/economy/treasury/combined.csv =>(12671, 2)
+2024-12-26 14:37:43,288 - merger - INFO - consolidate_dir -  -> Combined file=(923, 2)
+2024-12-26 14:37:43,288 - merger - INFO - consolidate_dir - ['date', 'unemployment']
+2024-12-26 14:37:43,289 - merger - INFO - consolidate_dir -  ->Exported combined CSV: ./files/economy/unemployment/combined.csv =>(923, 2)
+2024-12-26 14:37:43,291 - merger - INFO - consolidate_dir -  -> Combined file=(935, 2)
+2024-12-26 14:37:43,291 - merger - INFO - consolidate_dir - ['date', 'cpi']
+2024-12-26 14:37:43,292 - merger - INFO - consolidate_dir -  ->Exported combined CSV: ./files/economy/cpi/combined.csv =>(935, 2)
+2024-12-26 14:37:43,293 - merger - INFO - consolidate_dir -  -> Combined file=(6, 2)
+2024-12-26 14:37:43,293 - merger - INFO - consolidate_dir - ['Date', 'Stock Splits']

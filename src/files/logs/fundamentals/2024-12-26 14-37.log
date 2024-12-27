@@ -1,0 +1,14 @@
+2024-12-26 14:37:30,617 - fundamentals - INFO - run - Scraping data from https://www.macrotrends.net/stocks/charts/NVDA/nvidia/income-statement?freq=Q...
+2024-12-26 14:37:30,829 - fundamentals - INFO - save_to_csv - Saving data to ./files/fundamentals/NVDA
+2024-12-26 14:37:30,833 - fundamentals - INFO - save_to_csv - Data successfully saved to ./files/fundamentals/NVDA/financial/2009-01-31_to_2024-10-31.csv
+2024-12-26 14:37:30,834 - fundamentals - INFO - run - Fetching historical data for NVDA...
+2024-12-26 14:37:37,770 - fundamentals - INFO - save_to_csv - Saved dividends to ./files/fundamentals/NVDA/dividends/2012_11_20_to_2024_12_05.csv
+2024-12-26 14:37:37,772 - fundamentals - INFO - save_to_csv - Saved splits to ./files/fundamentals/NVDA/splits/2000_06_27_to_2024_06_10.csv
+2024-12-26 14:37:37,776 - fundamentals - INFO - save_to_csv - Saved share_count to ./files/fundamentals/NVDA/share_count/2015_11_18_to_2024_12_14.csv
+2024-12-26 14:37:37,777 - fundamentals - INFO - save_to_csv - Saved quarterly_income_stmt to ./files/fundamentals/NVDA/quarterly_income_stmt/2023_04_30_to_2024_10_31.csv
+2024-12-26 14:37:37,778 - fundamentals - INFO - save_to_csv - Saved balance_sheet to ./files/fundamentals/NVDA/balance_sheet/2020_01_31_to_2024_01_31.csv
+2024-12-26 14:37:37,788 - fundamentals - INFO - save_to_csv - Saved cashflow to ./files/fundamentals/NVDA/cashflow/2020_01_31_to_2024_01_31.csv
+2024-12-26 14:37:37,792 - fundamentals - INFO - save_to_csv - Saved major_holders to ./files/fundamentals/NVDA/major_holders/2024_12_26.csv
+2024-12-26 14:37:37,793 - fundamentals - INFO - save_to_csv - Saved institutional_holders to ./files/fundamentals/NVDA/institutional_holders/2024_12_26.csv
+2024-12-26 14:37:37,794 - fundamentals - INFO - save_to_csv - Saved mutualfund_holders to ./files/fundamentals/NVDA/mutualfund_holders/2024_12_26.csv
+2024-12-26 14:37:37,861 - fundamentals - INFO - save_to_csv - Saved options to ./files/fundamentals/NVDA/options/2024-12-27_to_2027-01-15.csv
