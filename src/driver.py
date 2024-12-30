@@ -29,12 +29,12 @@ class Driver(MyLogger):
         self.log.info(self.df.columns.tolist())
 
     def driver(self, manual_labels_dir):
-        for i in range(len(self.df) - self._xgb.start_from-1000, len(self.df)+1):
+        for i in range(len(self.df) - self._xgb.start_from, len(self.df)+1):
             df= copy.deepcopy(self.df.iloc[:i])
             df=self._pp.driver(df)# impute
             df=self._ta.driver(df)# technical indocators
-            # df=self._ts.driver(df)# trading signals
-            # df=self._fe.driver(df)# feature eng
+            df=self._ts.driver(df)# trading signals
+            df=self._fe.driver(df)# feature eng
             self._xgb.driver(df, manual_labels_dir)# training
             self._xgb.export_data()
         self._xgb.print_overall_important_features()

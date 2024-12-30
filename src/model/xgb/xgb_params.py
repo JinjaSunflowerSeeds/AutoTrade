@@ -131,6 +131,7 @@ class XgbUtils:
         self.log.info("  Scaling data...")
         # self.log.info("   ->features:{}".format(self.features))
         # mm = preprocessing.StandardScaler().fit(self.train[self.features])
+        print(self.train[self.features][self.train[self.features].isnull().any(axis=1)])
         mm = preprocessing.MinMaxScaler().fit(self.train[self.features])
         self.train[self.features] = mm.transform(self.train[self.features])
         self.test[self.features] = mm.transform(self.test[self.features])

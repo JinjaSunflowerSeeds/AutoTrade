@@ -190,6 +190,8 @@ class Merger(Consolidator):
                 continue
             d = data_output_base_dir.format(f)
             for ff in os.listdir(d):
+                if 'DS_Store' in ff:
+                    continue
                 for fff in os.listdir(d + "/" + ff):
                     if "combined" in fff and ".csv" in fff:
                         self.files.append(d + "/" + ff + "/" + fff)

@@ -14,7 +14,7 @@ from utils.config_reader import get_manual_output_path, get_merger_final_output_
 cmd: 
     python3 visualizer/candles.py
     
-You need to click on the buy chart and then on the sell chart. Even for SHORTs.
+See this func on how buy/sell are distinguished and labeled (default is buy if odd number of clicks have happened)
     -> see set_labels()
 """
 
@@ -22,22 +22,7 @@ class InteractiveCandlestickChart:
     def __init__(self, filepath, outputfile, label):
         self.label = label
         # Load and prepare the data
-        self.df = pd.read_csv(filepath)#.tail(60)
-        self.df["date"] = pd.to_datetime(self.df["date"])
-        self.df["vwma_14"] = (
-            self.df["close"]
-            .mul(self.df["volume"])
-            .rolling(window=14, min_periods=1)
-            .sum()
-            / self.df["volume"].rolling(window=14, min_periods=1).sum()
-        )
-        # self.df["vwma_14"]= (self.df['close'] * self.df['volume']).cumsum() / self.df['volume'].cumsum()
-        s = "12/26/2024"
-        e = "12/27/2024"
-        self.df = self.df[(self.df.date >= s) & (self.df.date < e)]
-        # ignore first 1 minute
-        self.df = self.df.iloc[1:]
-        self.df.set_index("date", inplace=True)
+        self.set_data(filepath)
         #
         self.outputfile = outputfile.format(
             label=self.label,
@@ -56,6 +41,28 @@ class InteractiveCandlestickChart:
         self.labels = []
         self.draw_plot()
 
+    def set_data(self, filepath):
+        self.df = pd.read_csv(filepath)#.tail(60)
+        self.df["date"] = pd.to_datetime(self.df["date"])
+        s = "12/23/2024"
+        e = "12/24/2024"
+        self.df = self.df[(self.df.date >= s) & (self.df.date < e)]
+        print(self.df.shape)
+        # vwap is calced for each seprately 
+        self.df["vwap"]= (((self.df['close']+ self.df.low+self.df.high)/3.0 )* self.df['volume']).cumsum() / self.df['volume'].cumsum()
+        self.add_candle_pattern_labels()
+        # self.df= self.df.iloc[0:int(len(self.df)/2)]
+        # ignore first 1 minute
+        self.df = self.df.iloc[1:]
+        self.df.set_index("date", inplace=True)
+        print(self.df)
+
+    def add_candle_pattern_labels(self):
+        patterns= pd.read_csv("/Users/ragheb/myprojects/stock/src/files/training/fe_1d.csv")[['date', 'cs_3inside']]
+        patterns['date']= pd.to_datetime(patterns['date'])
+        self.df = self.df.merge(patterns, how='left', on='date')
+        print(self.df.shape)
+    
     def draw_plot(self):
         # Create the plot (with two subplots
         self.fig, (self.ax, self.ax_vol) = plt.subplots(
@@ -65,39 +72,37 @@ class InteractiveCandlestickChart:
         self.fig.canvas.mpl_connect("button_press_event", self.on_click)
 
     def add_plot(self):
-        add_plots = []
-        # l = []
-        # for _, i in self.df.iterrows():
-        #     if i.label == 1:
-        #         l.append(i.low - 0.01)
-        #     else:
-        #         l.append(np.nan)
-        # add_plots.append(
-        #     mpf.make_addplot(
-        #         l,
-        #         scatter=True,
-        #         markersize=10,
-        #         marker="^",
-        #         color="black",
-        #         ylabel="Buy Signal",
-        #     )
-        # )
+        add_plots = [] 
+        l, ll = [], []
+        for _, i in self.df.iterrows():
+            if i.cs_3inside != 0:
+                l.append(i.low - 0.01)
+            else:
+                l.append(np.nan) 
         add_plots.append(
             mpf.make_addplot(
-                self.df.vwma_14,
+                l,
+                scatter=True,
+                markersize=10,
+                marker="x",
+                color="black",
+                ylabel="DOJI",
+                ax=self.ax,
+            )
+        )
+        
+        add_plots.append(
+            mpf.make_addplot(
+                self.df.vwap,
                 type="line",
                 marker=".",
                 color="darkblue",
                 markersize=10,
-                label="vwma_14",
+                label="vwap",
                 ax=self.ax,
             )
         )
-        # add_plots.append(
-        #     mpf.make_addplot(
-        #         100*self.df.rsi_14,type='line', marker='.', color="green", markersize=100, ylabel="RSI", ax=self.ax_vol
-        #     )
-        # )
+        
         self.df["c"] = self.df.iloc[
             1:
         ].volume.mean()  # .rolling(window=7, min_periods=1).mean()
@@ -156,7 +161,7 @@ class InteractiveCandlestickChart:
             print("Clicked out of range.")
             return
         date, idx, price = self.get_df_info(x_coord, x_dates)
-        self.labels.append({"date": date, "close": price})
+        self.labels.append({"date": date,'label':self.label, "close": price})
         self.save_labels_to_file()
         #
         line = self.ax.axvline(x=event.xdata, color="black", linestyle="--")
@@ -164,11 +169,20 @@ class InteractiveCandlestickChart:
 
     def set_labels(self):
         # this works if you click on the buy chart and then on the sell chart. Even for SHORTs.
-        for i in range(len(self.labels)):
-            if i % 2 != 0:
-                self.labels[i]["label"] = "Buy"
-            else:
-                self.labels[i]["label"] = "Sell"
+        t=1
+        while t< len(self.labels):
+            if self.labels[t-1]['close']< self.labels[t]['close']:#long
+                self.labels[t-1]["label"] = "Buy"
+                self.labels[t]["label"] = "Sell"
+            else: #short 
+                self.labels[t-1]["label"] = "Sell"
+                self.labels[t]["label"] = "Buy"
+            t+=2
+        # for i in range(len(self.labels)):
+        #     if i % 2 != 0:
+        #         self.labels[i]["label"] = "Buy"
+        #     else:
+        #         self.labels[i]["label"] = "Sell"
                 
     def get_pnl(self, df):
         profit= df[df.label=='Buy'].close.sum()-df[df.label=='Sell'].close.sum()
