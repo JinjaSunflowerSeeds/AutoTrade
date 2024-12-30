@@ -8,7 +8,7 @@
     {
         "stock": "NVDA",
         "company_name":"NVIDIA",
-        "indices": ["SPY", "BOTZ", "SMH", "XLK"],
+        "indices": ["SPY", "BOTZ", "SMH", "XLK", "VGT", "QQQ"],
         "correlated_stocks":["INTC", "AMD", "AVGO"],
         "data_output_base_dir": "./files/ohlcv/{}/{}"
     },
@@ -21,6 +21,9 @@
     },
     "merger":{
         "data_output_base_dir": "./files/training/merger/{}"
+    },
+    "manual_label":{
+        "output_dir": "./files/training/manual_labels/{}/{}"
     }
 
 }

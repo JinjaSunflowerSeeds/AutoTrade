@@ -77,8 +77,8 @@ venv.bak/
 .vscode/
 
 # Logs and debug
-# *.log
-# logs/
+*.log
+logs/
 
 # Temporary files
 *.swp

@@ -48,7 +48,7 @@ class XgbUtils:
                 # n_estimators= 500,  subsample= 0.8,
                 #  reg_lambda= 3,
 
-                n_estimators=100,
+                n_estimators=250,
                 max_depth=5,
                 # eta=0.1,
                 # subsample=0.7,
@@ -81,6 +81,8 @@ class XgbUtils:
         p = deepcopy(self.df[["date", "label"]].reset_index(drop=True, inplace=False))
         p["label"] = p.label.shift(1)
         df_ = df_.merge(p, on="date")
+        # df_['date'] = pd.to_datetime(df_['date'])
+        # self.df['date'] = pd.to_datetime(self.df['date'])
         # shift the dates one day forward to make it the day forcast is made for ( pd.offsets.BusinessDay(n=1) is not accurate as it does not consider market holidays)
         # changing input (date prediction was made, pred) ->to-> (date pred was made for, pred)
         # get last record, make its date next one, for other ones shift the prediction up, then join back
@@ -127,6 +129,7 @@ class XgbUtils:
 
     def scale_feautres(self):
         self.log.info("  Scaling data...")
+        # self.log.info("   ->features:{}".format(self.features))
         # mm = preprocessing.StandardScaler().fit(self.train[self.features])
         mm = preprocessing.MinMaxScaler().fit(self.train[self.features])
         self.train[self.features] = mm.transform(self.train[self.features])
@@ -134,19 +137,36 @@ class XgbUtils:
 
     def metrics(self, pred_df):
         try:
-            if self.do_binary:
+            if True :
                 self.log.warning("   ->accuracy={:.3f}".format(100 * accuracy_score(pred_df.label, pred_df.pred>0.5)))
                 self.log.warning(
-                    "   ->precision_50={:.3f}, #trades={:.0f}".format(100 * precision_score(pred_df.label, pred_df.pred>0.5),pred_df.pred.sum())
+                    "   ->precision_50={:.3f}, #trades={:.0f}".format(100 * precision_score(pred_df.label, pred_df.pred>0.5, average='weighted'), pred_df.pred.sum())
+                )
+                self.log.warning(
+                    "   ->precision_75={:.3f}, #trades={:.0f}".format(100 * precision_score(pred_df.label, [i>0.75 for i in pred_df.prob], average='weighted'),
+                                                    np.sum([i>0.75 for i in pred_df.prob]))
+                )
+                self.log.warning("   ->auc={:.3f}".format(100 * roc_auc_score(pred_df.label, pred_df.prob, multi_class='ovr')))
+                self.log.warning(
+                    "   ->f1={:.3f}".format(
+                    100 * f1_score(pred_df.label, pred_df.pred, average="weighted")
+                    )
+                )
+                self.log.warning("   ->recall={:.3f}".format(100 * recall_score(pred_df.label, pred_df.pred)))
+                self.log.warning("   ->$gain={}".format(open_close_strategy_gain(pred_df, self.direction)))
+            elif self.do_binary:
+                self.log.warning("   ->accuracy={:.3f}".format(100 * accuracy_score(pred_df.label, pred_df.pred>0.5)))
+                self.log.warning(
+                    "   ->precision_50={:.3f}, #trades={:.0f}".format(100 * precision_score(pred_df.label, pred_df.pred>0.5, average='weighted'), pred_df.pred.sum())
                 )
                 self.log.warning(
                     "   ->precision_75={:.3f}, #trades={:.0f}".format(100 * precision_score(pred_df.label, [i>0.75 for i in pred_df.prob]),
-                                                                      np.sum([i>0.75 for i in pred_df.prob]))
+                                                    np.sum([i>0.75 for i in pred_df.prob]))
                 )
                 self.log.warning("   ->auc={:.3f}".format(100 * roc_auc_score(pred_df.label, pred_df.prob)))
                 self.log.warning(
                     "   ->f1={:.3f}".format(
-                        100 * f1_score(pred_df.label, pred_df.pred, average="weighted")
+                    100 * f1_score(pred_df.label, pred_df.pred, average="weighted")
                     )
                 )
                 self.log.warning("   ->recall={:.3f}".format(100 * recall_score(pred_df.label, pred_df.pred)))
@@ -156,7 +176,7 @@ class XgbUtils:
                 self.log.warning("   ->r2={}".format(r2_score(pred_df.label, pred_df.pred, multioutput="variance_weighted")))
                 self.log.warning("   ->corr={}".format(np.corrcoef(pred_df.label, pred_df.pred)[0][1]))
         except Exception as e:
-            self.log.warning(e)
+            self.log.warning("   ->Error:{}".format(e))
 
     def predict(self, train, test, train_label):
         self.log.info("  Predictng...")
@@ -248,7 +268,7 @@ class XgbUtils:
         # do hyper by using 80% for traiing and 20% for testing, the best will be based on the latter
         # XgbUtils().hyer_tune(df, labels)
         # print(df.columns.tolist())
-        print(df[df.isnull().any(axis=1)])
+        self.log.warning(f"nulls before train {df.shape}=> {df[df.isnull().any(axis=1)]}")
         x=df.columns[df.isnull().any()]
         if len(x)>0:
             print(x)

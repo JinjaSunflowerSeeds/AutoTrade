@@ -41,3 +41,14 @@ def get_merger_output_file(conf_file="./config/data_conf.json"):
     with open(conf_file) as f:
         data = json.load(f)
     return data['merger']['data_output_base_dir'].format(data["ticker"]["stock"]), data["interval"]["interval"]
+
+# TODO: merge with above
+def get_merger_final_output_file():
+    dir , interval = get_merger_output_file()
+    dir += '/{}.csv'.format(interval)
+    return dir
+
+def get_manual_output_path(conf_file="./config/data_conf.json"):
+    with open(conf_file) as f:
+        data = json.load(f)
+    return data['manual_label']['output_dir'].format(data['ticker']['stock'], data["interval"]["interval"])

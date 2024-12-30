@@ -9,6 +9,7 @@ import pandas as pd
 from ta import add_all_ta_features
 from ta.utils import dropna
 from lib.color_logger import MyLogger
+import copy
 
 
 class TA(MyLogger):
@@ -143,7 +144,7 @@ class TA(MyLogger):
         exit(1)
 
     def gen_ta(self):
-        self.log.info(" Generating technical analysis ...")
+        self.log.info(" Adding technical indicators...")
         # self.gen_ta_aux()
         # https://pypi.org/project/stockstats/
         ta = wrap(self.df)

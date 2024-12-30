@@ -7,7 +7,7 @@ from preproc.technical_indicators import TA
 from preproc.trading_signals import TS
 from preproc.feature_eng import FeatureEngineering
 from model.xgb.xgb import XGB
-from utils.config_reader import get_merger_output_file
+from utils.config_reader import get_merger_final_output_file,get_manual_output_path
 from lib.color_logger import MyLogger
 
 class Driver(MyLogger):
@@ -28,19 +28,19 @@ class Driver(MyLogger):
         self.log.info("  -> date range from {} to {}".format(self.df['date'].min(), self.df['date'].max()))
         self.log.info(self.df.columns.tolist())
 
-    def driver(self):
-        for i in range(len(self.df) - self._xgb.start_from, len(self.df)+1):
-            train= copy.deepcopy(self.df.iloc[:i])
-            train=self._pp.driver(train)# impute
-            train=self._ta.driver(train)# technical indocators
-            train=self._ts.driver(train)# trading signals
-            train=self._fe.driver(train)# feature eng
-            self._xgb.driver(train)# training
+    def driver(self, manual_labels_dir):
+        for i in range(len(self.df) - self._xgb.start_from-1000, len(self.df)+1):
+            df= copy.deepcopy(self.df.iloc[:i])
+            df=self._pp.driver(df)# impute
+            df=self._ta.driver(df)# technical indocators
+            # df=self._ts.driver(df)# trading signals
+            # df=self._fe.driver(df)# feature eng
+            self._xgb.driver(df, manual_labels_dir)# training
             self._xgb.export_data()
         self._xgb.print_overall_important_features()
 
 
 if __name__ == '__main__':
     d= Driver()
-    d.read_file(filepath=get_merger_output_file())
-    d.driver()
+    d.read_file(get_merger_final_output_file())
+    d.driver(get_manual_output_path())

@@ -94,7 +94,7 @@ class OHLCVBase:
 
 class OHLCV(OHLCVBase):
     def download_data(self):
-        self.logger.info(f" Getting data {self.ticker}...")
+        self.logger.info(f" Getting data {self.ticker}: from {self.start_date} to {self.end_date}...")
         tmp = yf.download(
             self.ticker,
             self.start_date,
@@ -103,6 +103,7 @@ class OHLCV(OHLCVBase):
             keepna=True,
             interval=self.interval,
             progress=False,
+            # prepost=True
         )
         if "date" not in tmp.columns:
             tmp.index.names = ["date"]
