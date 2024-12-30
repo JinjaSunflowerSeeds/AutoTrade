@@ -117,6 +117,7 @@ class FeatureList:
             #     "poly_3d",
             #     "poly_7d",
             #     "poly_30d"
+            #      "vwap"
             # ],
             # "fundementals from macrotrends": [
             #     "revenue",

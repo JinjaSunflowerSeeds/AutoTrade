@@ -93,10 +93,10 @@ class OHLCVBase:
 
 
 class OHLCV(OHLCVBase):
-    def get_period(self, interval):
+    def get_period(self):
         if self.interval == "1m":
             return '8d'
-        elif interval in ['2m', '5m', '15m', '30m', '60m']:
+        elif self.interval in ['2m', '5m', '15m', '30m', '60m']:
             return '60d'
         return 'max'  
     
@@ -106,7 +106,7 @@ class OHLCV(OHLCVBase):
             self.ticker,
             self.start_date,
             self.end_date,
-            period=self.get_period(self.interval),
+            period=self.get_period(),
             auto_adjust=True,
             keepna=True,
             interval=self.interval,

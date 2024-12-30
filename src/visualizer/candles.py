@@ -49,7 +49,7 @@ class InteractiveCandlestickChart:
         self.df = self.df[(self.df.date >= s) & (self.df.date < e)]
         print(self.df.shape)
         # vwap is calced for each seprately 
-        self.df["vwap"]= (((self.df['close']+ self.df.low+self.df.high)/3.0 )* self.df['volume']).cumsum() / self.df['volume'].cumsum()
+        self.df["vwap_"]= (((self.df['close']+ self.df.low+self.df.high)/3.0 )* self.df['volume']).cumsum() / self.df['volume'].cumsum()
         self.add_candle_pattern_labels()
         # self.df= self.df.iloc[0:int(len(self.df)/2)]
         # ignore first 1 minute
@@ -58,7 +58,7 @@ class InteractiveCandlestickChart:
         print(self.df)
 
     def add_candle_pattern_labels(self):
-        patterns= pd.read_csv("/Users/ragheb/myprojects/stock/src/files/training/fe_1d.csv")[['date', 'cs_3inside']]
+        patterns= pd.read_csv("/Users/ragheb/myprojects/stock/src/files/training/fe_1d.csv")[['date', 'vwap', 'cs_3inside']]
         patterns['date']= pd.to_datetime(patterns['date'])
         self.df = self.df.merge(patterns, how='left', on='date')
         print(self.df.shape)
