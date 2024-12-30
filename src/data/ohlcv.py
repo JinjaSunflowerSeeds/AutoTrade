@@ -93,12 +93,20 @@ class OHLCVBase:
 
 
 class OHLCV(OHLCVBase):
+    def get_period(self, interval):
+        if self.interval == "1m":
+            return '8d'
+        elif interval in ['2m', '5m', '15m', '30m', '60m']:
+            return '60d'
+        return 'max'  
+    
     def download_data(self):
         self.logger.info(f" Getting data {self.ticker}: from {self.start_date} to {self.end_date}...")
         tmp = yf.download(
             self.ticker,
             self.start_date,
             self.end_date,
+            period=self.get_period(self.interval),
             auto_adjust=True,
             keepna=True,
             interval=self.interval,
