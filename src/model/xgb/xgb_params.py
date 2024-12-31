@@ -44,11 +44,24 @@ class XgbUtils:
     def get_xbg_model(self, do_binary):
         if do_binary:
             return XGBClassifier(
+    n_estimators=500,
+    max_depth=5,
+    learning_rate=0.03,       # Smaller learning rate for better convergence
+    subsample=0.7,            # Subsample to reduce overfitting
+    colsample_bytree=0.7,     # Focus on relevant features
+    scale_pos_weight=90/10.0,  # Handle imbalance
+    reg_lambda=3,             # L2 regularization
+    reg_alpha=1,              # L1 regularization
+    random_state=1989,
+    n_jobs=-1,
+    eval_metric="auc"         # Use AUC-ROC as the evaluation metric
+)
+            return XGBClassifier(
                 # colsample_bytree= 1.0, eta= 0.01, max_depth= 5,
                 # n_estimators= 500,  subsample= 0.8,
                 #  reg_lambda= 3,
 
-                n_estimators=250,
+                n_estimators=500,
                 max_depth=5,
                 # eta=0.1,
                 # subsample=0.7,
@@ -138,7 +151,7 @@ class XgbUtils:
 
     def metrics(self, pred_df):
         try:
-            if True :
+            if False :
                 self.log.warning("   ->accuracy={:.3f}".format(100 * accuracy_score(pred_df.label, pred_df.pred>0.5)))
                 self.log.warning(
                     "   ->precision_50={:.3f}, #trades={:.0f}".format(100 * precision_score(pred_df.label, pred_df.pred>0.5, average='weighted'), pred_df.pred.sum())

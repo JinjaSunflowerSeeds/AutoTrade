@@ -36,7 +36,9 @@ class XGB(TrainConf, FeatureList, XgbUtils, MyLogger, Labeler):
         self.feature_importance_scores = [0] * len(self.features)
 
     def add_label(self, manual_labels_dir):
-        self.add_manual_labels(manual_labels_dir)
+        self.short_label_profit_stop_loss()
+        # self.long_label_profit_stop_loss()
+        # self.add_manual_labels(manual_labels_dir)
         # if self.do_binary:
         #     self.add_binary_label()
         # else:

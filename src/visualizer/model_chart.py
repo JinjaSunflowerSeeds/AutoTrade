@@ -48,11 +48,9 @@ class ModelPredictionChart:
     def get_data(self,filepath):
         self.df = pd.read_csv(filepath)#.tail(60)
         self.df["date"] = pd.to_datetime(self.df["date"])
-        s = "12/26/2024"
-        e = "12/27/2024"
+        s = "12/30/2024"
+        e = "12/31/2024"
         self.df = self.df[(self.df.date >= s) & (self.df.date < e)]
-        # ignore first 1 minute
-        self.df = self.df.iloc[1:]
         self.df.set_index("date", inplace=True)
 
     def draw_plot(self):

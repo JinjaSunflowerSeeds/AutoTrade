@@ -9,6 +9,7 @@ import numpy as np
 import pandas as pd
 from matplotlib.backend_bases import MouseEvent
 from utils.config_reader import get_manual_output_path, get_merger_final_output_file
+from model.labeling.labeler import Labeler
 
 """
 cmd: 
@@ -18,8 +19,10 @@ See this func on how buy/sell are distinguished and labeled (default is buy if o
     -> see set_labels()
 """
 
-class InteractiveCandlestickChart:
+class InteractiveCandlestickChart(Labeler):
     def __init__(self, filepath, outputfile, label):
+        super().__init__()
+        Labeler.__init__(self)
         self.label = label
         # Load and prepare the data
         self.set_data(filepath)
@@ -44,12 +47,13 @@ class InteractiveCandlestickChart:
     def set_data(self, filepath):
         self.df = pd.read_csv(filepath)#.tail(60)
         self.df["date"] = pd.to_datetime(self.df["date"])
-        s = "12/23/2024"
-        e = "12/24/2024"
-        self.df = self.df[(self.df.date >= s) & (self.df.date < e)]
+        # self.long_label_profit_stop_loss()
+        self.short_label_profit_stop_loss()
+        s = "12/30/2024"
+        e = "12/31/2024"
+        self.df = self.df[(self.df.date >= s) & (self.df.date < e)].tail(60)
         print(self.df.shape)
-        # vwap is calced for each seprately 
-        self.df["vwap_"]= (((self.df['close']+ self.df.low+self.df.high)/3.0 )* self.df['volume']).cumsum() / self.df['volume'].cumsum()
+        self.df.reset_index(inplace=True)
         self.add_candle_pattern_labels()
         # self.df= self.df.iloc[0:int(len(self.df)/2)]
         # ignore first 1 minute
@@ -58,9 +62,9 @@ class InteractiveCandlestickChart:
         print(self.df)
 
     def add_candle_pattern_labels(self):
-        patterns= pd.read_csv("/Users/ragheb/myprojects/stock/src/files/training/fe_1d.csv")[['date', 'vwap', 'cs_3inside']]
+        patterns= pd.read_csv("/Users/ragheb/myprojects/stock/src/files/training/fe_1d.csv")
         patterns['date']= pd.to_datetime(patterns['date'])
-        self.df = self.df.merge(patterns, how='left', on='date')
+        self.df = self.df.merge(patterns[['date','vwap', 'cs_3inside']], how='left', on='date')
         print(self.df.shape)
     
     def draw_plot(self):
@@ -73,24 +77,56 @@ class InteractiveCandlestickChart:
 
     def add_plot(self):
         add_plots = [] 
-        l, ll = [], []
+        l, ll, lll = [], [], []
         for _, i in self.df.iterrows():
             if i.cs_3inside != 0:
-                l.append(i.low - 0.01)
+                l.append(i.low - 0.02)
             else:
                 l.append(np.nan) 
+            if i.label==1:
+                ll.append(i.low - 0.02)
+            else:
+                ll.append(np.nan)
+            if i.sells==1:
+                lll.append(i.low - 0.02)
+            else:
+                lll.append(np.nan)
+            
+        # add_plots.append(
+        #     mpf.make_addplot(
+        #         l,
+        #         scatter=True,
+        #         markersize=10,
+        #         marker="x",
+        #         color="black",
+        #         ylabel="DOJI",
+        #         ax=self.ax,
+        #     )
+        # )
+        
         add_plots.append(
             mpf.make_addplot(
-                l,
+                ll,
                 scatter=True,
                 markersize=10,
-                marker="x",
+                marker="^",
                 color="black",
-                ylabel="DOJI",
+                ylabel="label",
                 ax=self.ax,
             )
         )
         
+        add_plots.append(
+            mpf.make_addplot(
+                lll,
+                scatter=True,
+                markersize=10,
+                marker="x",
+                color="red",
+                ylabel="label",
+                ax=self.ax,
+            )
+        )
         add_plots.append(
             mpf.make_addplot(
                 self.df.vwap,
