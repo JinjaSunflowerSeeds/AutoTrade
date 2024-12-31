@@ -8,24 +8,35 @@ import mplfinance as mpf
 import numpy as np
 import pandas as pd
 from matplotlib.backend_bases import MouseEvent
-from utils.config_reader import get_manual_output_path, get_merger_final_output_file
 from model.labeling.labeler import Labeler
+from utils.config_reader import get_manual_output_path, get_merger_final_output_file
 
 """
 cmd: 
     python3 visualizer/candles.py
     
-See this func on how buy/sell are distinguished and labeled (default is buy if odd number of clicks have happened)
+Each buy/sell must match a sell/buy action. See this func on how buy/sell are distinguished and labeled (default is buy if odd number of clicks have happened)
     -> see set_labels()
 """
 
+
 class InteractiveCandlestickChart(Labeler):
-    def __init__(self, filepath, outputfile, label):
+    def __init__(
+        self,
+        filepath,
+        outputfile,
+        fe_file,
+        start_date,
+        end_date,
+        strategy="long",
+        tail=10000,
+    ):
         super().__init__()
         Labeler.__init__(self)
-        self.label = label
+        self.label = strategy
         # Load and prepare the data
-        self.set_data(filepath)
+        print(filepath, outputfile,fe_file,start_date, end_date, strategy ,    tail )
+        self.set_data(filepath, fe_file, start_date, end_date, strategy, tail)
         #
         self.outputfile = outputfile.format(
             label=self.label,
@@ -44,29 +55,33 @@ class InteractiveCandlestickChart(Labeler):
         self.labels = []
         self.draw_plot()
 
-    def set_data(self, filepath):
-        self.df = pd.read_csv(filepath)#.tail(60)
+    def set_data(
+        self, filepath, fe_filepath, start_date, end_date, strategy="long", tail=10000
+    ):
+        self.df = pd.read_csv(filepath)  # .tail(60)
         self.df["date"] = pd.to_datetime(self.df["date"])
-        # self.long_label_profit_stop_loss()
-        self.short_label_profit_stop_loss()
-        s = "12/30/2024"
-        e = "12/31/2024"
-        self.df = self.df[(self.df.date >= s) & (self.df.date < e)].tail(60)
-        print(self.df.shape)
+        if strategy == "long":
+            self.long_label_profit_stop_loss()
+        else:
+            self.short_label_profit_stop_loss()
+        self.df = self.df[
+            (self.df.date >= start_date) & (self.df.date < end_date)
+        ].tail(tail)
         self.df.reset_index(inplace=True)
-        self.add_candle_pattern_labels()
+        self.add_candle_pattern_labels(fe_filepath)
         # self.df= self.df.iloc[0:int(len(self.df)/2)]
         # ignore first 1 minute
         self.df = self.df.iloc[1:]
         self.df.set_index("date", inplace=True)
-        print(self.df)
 
-    def add_candle_pattern_labels(self):
-        patterns= pd.read_csv("/Users/ragheb/myprojects/stock/src/files/training/fe_1d.csv")
-        patterns['date']= pd.to_datetime(patterns['date'])
-        self.df = self.df.merge(patterns[['date','vwap', 'cs_3inside']], how='left', on='date')
+    def add_candle_pattern_labels(self, filepath):
+        patterns = pd.read_csv(filepath)
+        patterns["date"] = pd.to_datetime(patterns["date"])
+        self.df = self.df.merge(
+            patterns[["date", "vwap"]], how="left", on="date"
+        )
         print(self.df.shape)
-    
+
     def draw_plot(self):
         # Create the plot (with two subplots
         self.fig, (self.ax, self.ax_vol) = plt.subplots(
@@ -76,46 +91,30 @@ class InteractiveCandlestickChart(Labeler):
         self.fig.canvas.mpl_connect("button_press_event", self.on_click)
 
     def add_plot(self):
-        add_plots = [] 
+        add_plots = []
         l, ll, lll = [], [], []
-        for _, i in self.df.iterrows():
-            if i.cs_3inside != 0:
-                l.append(i.low - 0.02)
-            else:
-                l.append(np.nan) 
-            if i.label==1:
-                ll.append(i.low - 0.02)
+        for _, i in self.df.iterrows(): 
+            if i.buy == 1:
+                ll.append(i.low - 0.04)
             else:
                 ll.append(np.nan)
-            if i.sells==1:
+            if i.sell == 1:
                 lll.append(i.low - 0.02)
             else:
                 lll.append(np.nan)
-            
-        # add_plots.append(
-        #     mpf.make_addplot(
-        #         l,
-        #         scatter=True,
-        #         markersize=10,
-        #         marker="x",
-        #         color="black",
-        #         ylabel="DOJI",
-        #         ax=self.ax,
-        #     )
-        # )
-        
+
         add_plots.append(
             mpf.make_addplot(
                 ll,
                 scatter=True,
                 markersize=10,
                 marker="^",
-                color="black",
-                ylabel="label",
+                color="green",
+                ylabel="buy",
                 ax=self.ax,
             )
         )
-        
+
         add_plots.append(
             mpf.make_addplot(
                 lll,
@@ -123,7 +122,7 @@ class InteractiveCandlestickChart(Labeler):
                 markersize=10,
                 marker="x",
                 color="red",
-                ylabel="label",
+                ylabel="sell",
                 ax=self.ax,
             )
         )
@@ -138,7 +137,7 @@ class InteractiveCandlestickChart(Labeler):
                 ax=self.ax,
             )
         )
-        
+
         self.df["c"] = self.df.iloc[
             1:
         ].volume.mean()  # .rolling(window=7, min_periods=1).mean()
@@ -197,7 +196,7 @@ class InteractiveCandlestickChart(Labeler):
             print("Clicked out of range.")
             return
         date, idx, price = self.get_df_info(x_coord, x_dates)
-        self.labels.append({"date": date,'label':self.label, "close": price})
+        self.labels.append({"date": date, "label": self.label, "close": price})
         self.save_labels_to_file()
         #
         line = self.ax.axvline(x=event.xdata, color="black", linestyle="--")
@@ -205,38 +204,41 @@ class InteractiveCandlestickChart(Labeler):
 
     def set_labels(self):
         # this works if you click on the buy chart and then on the sell chart. Even for SHORTs.
-        t=1
-        while t< len(self.labels):
-            if self.labels[t-1]['close']< self.labels[t]['close']:#long
-                self.labels[t-1]["label"] = "Buy"
+        t = 1
+        while t < len(self.labels):
+            if self.labels[t - 1]["close"] < self.labels[t]["close"]:  # long
+                self.labels[t - 1]["label"] = "Buy"
                 self.labels[t]["label"] = "Sell"
-            else: #short 
-                self.labels[t-1]["label"] = "Sell"
+            else:  # short
+                self.labels[t - 1]["label"] = "Sell"
                 self.labels[t]["label"] = "Buy"
-            t+=2
+            t += 2
         # for i in range(len(self.labels)):
         #     if i % 2 != 0:
         #         self.labels[i]["label"] = "Buy"
         #     else:
         #         self.labels[i]["label"] = "Sell"
-                
+
     def get_pnl(self, df):
-        profit= df[df.label=='Buy'].close.sum()-df[df.label=='Sell'].close.sum()
-        ppt= [f"{(i[0]-i[1])[0]:.2f}" for i in zip(df[df.label=='Buy'].close.values , df[df.label=='Sell'].close.values)]
+        profit = df[df.label == "Buy"].close.sum() - df[df.label == "Sell"].close.sum()
+        ppt = [
+            f"{(i[0]-i[1])[0]:.2f}"
+            for i in zip(
+                df[df.label == "Buy"].close.values, df[df.label == "Sell"].close.values
+            )
+        ]
         return profit[0], ppt
 
     def save_labels_to_file(self):
         self.set_labels()
         df_ = pd.DataFrame(self.labels)
         df_.to_csv(self.outputfile, index=False)
-        profit, ppt= self.get_pnl(df_)
+        profit, ppt = self.get_pnl(df_)
         print(
             f"Labels saved to  {self.outputfile}. profit={profit:.2f}, pre trade={ppt})"
         )
 
     def show(self):
-        # self.fig.subplots_adjust(hspace=0.1)
-        self.fig.tight_layout()
         plt.tight_layout()
         plt.show()
 
@@ -251,5 +253,13 @@ if __name__ == "__main__":
     outputfile = label_output_path + "/{label}_{start_date}_to_{end_date}.csv"
     print(outputfile)
     print(filepath)
-    chart = InteractiveCandlestickChart(filepath, outputfile, "Buy")
+    chart = InteractiveCandlestickChart(
+        filepath,
+        outputfile,
+        "/Users/ragheb/myprojects/stock/src/files/training/fe_1d.csv",
+        "12/20/2024",
+        "12/21/2024",
+        strategy="short",
+        tail=10000,
+    )
     chart.show()
