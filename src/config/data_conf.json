@@ -1,15 +1,20 @@
 
 {
     "interval":{
+<<<<<<< HEAD
+        "interval":"1d",
+=======
         "interval":"1m",
+>>>>>>> 5013666 (first commit)
         "lookback":5
     },
     "ticker":
     {
         "stock": "NVDA",
+<<<<<<< HEAD
         "company_name":"NVIDIA",
-        "indices": ["SPY", "BOTZ", "SMH", "XLK", "VGT", "QQQ"],
-        "correlated_stocks":["INTC", "AMD", "AVGO"],
+        "indices": ["SPY", "BOTZ", "SMH", "XLK", "VGT", "QQQ", "^VIX", "DAX"],
+        "correlated_stocks":["INTC", "AMD", "AVGO", "META", "AMZN", "GOOG", "TSLA", "COST", "MSFT", "NFLX"],
         "data_output_base_dir": "./files/ohlcv/{}/{}"
     },
     "economy":{
@@ -24,6 +29,21 @@
     },
     "manual_label":{
         "output_dir": "./files/training/manual_labels/{}/{}"
+=======
+        "indices": [],
+        "correlated_stocks":["INTC"],
+        "data_output_base_dir": "./files/technical/{}"
+    },
+    "economy":{
+        "data_output_base_dir": "./files/economy/",
+        "fred_api_key": "./files/api_keys/fred/key.txt"
+    },
+    "fundamentals":{
+        "data_output_base_dir": "./files/fundamentals/"
+    },
+    "merger":{
+        "data_output_base_dir": "./files/training/{}_{}.csv"
+>>>>>>> 5013666 (first commit)
     }
 
 }

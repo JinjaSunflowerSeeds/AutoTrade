@@ -9,7 +9,11 @@ def get_ticker_data_conf(conf_file="./config/data_conf.json"):
     stock= data['stock']
     indices= data['indices']
     correlated_stocks= data['correlated_stocks']
+<<<<<<< HEAD
     data_output_base_dir=data['data_output_base_dir']#.format(stock)
+=======
+    data_output_base_dir=data['data_output_base_dir'].format(stock)
+>>>>>>> 5013666 (first commit)
     _lookback= int(interval["lookback"])
     interval=interval["interval"]
     return stock, interval, _lookback, indices, correlated_stocks, data_output_base_dir
@@ -26,6 +30,7 @@ def get_fundamentals_data_conf(conf_file="./config/data_conf.json"):
         x=json.load(f)
         data = x['fundamentals']
         interval=x["interval"]
+<<<<<<< HEAD
         tickers = x['ticker']
     
     stock= tickers['stock']
@@ -36,10 +41,14 @@ def get_fundamentals_data_conf(conf_file="./config/data_conf.json"):
     _lookback= int(interval["lookback"])
     # interval=interval["interval"]
     return stock, company, data_output_base_dir, _lookback
+=======
+    return data['data_output_base_dir'],int(interval["lookback"])
+>>>>>>> 5013666 (first commit)
 
 def get_merger_output_file(conf_file="./config/data_conf.json"):
     with open(conf_file) as f:
         data = json.load(f)
+<<<<<<< HEAD
     return data['merger']['data_output_base_dir'].format(data["ticker"]["stock"]), data["interval"]["interval"]
 
 # TODO: merge with above
@@ -52,3 +61,6 @@ def get_manual_output_path(conf_file="./config/data_conf.json"):
     with open(conf_file) as f:
         data = json.load(f)
     return data['manual_label']['output_dir'].format(data['ticker']['stock'], data["interval"]["interval"])
+=======
+    return data['merger']['data_output_base_dir'].format(data["ticker"]["stock"], data["interval"]["interval"])
+>>>>>>> 5013666 (first commit)

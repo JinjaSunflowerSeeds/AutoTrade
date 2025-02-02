@@ -46,6 +46,10 @@ import keras.backend as K
 from tensorflow.python.client import device_lib
 
 sys.path.append('/Users/ragheb/myprojects/stock/src/config')
+<<<<<<< HEAD
+sys.path.append('/Users/ragheb/myprojects/stock/src/model')
+=======
+>>>>>>> 5013666 (first commit)
 from train_conf import (
     FeatureList,
     TrainConf
@@ -60,6 +64,11 @@ from train_conf import (
 from keras import backend as K
 from keras.callbacks import Callback
 
+<<<<<<< HEAD
+from labeling.labeler import Labeler
+
+=======
+>>>>>>> 5013666 (first commit)
 class GradientClipper(Callback):
     def __init__(self, clip_value):
         self.clip_value = clip_value
@@ -72,10 +81,18 @@ class GradientClipper(Callback):
         K.set_value(K.gradients(self.model.total_loss, self.model.trainable_weights), clipped_grads)
 
 
+<<<<<<< HEAD
+class LSTM_(FeatureList, Labeler):
+    def __init__(self):
+        super().__init__()
+        FeatureList.__init__(self)
+        Labeler.__init__(self)
+=======
 class LSTM_(FeatureList):
     def __init__(self):
         super().__init__()
         FeatureList.__init__(self)
+>>>>>>> 5013666 (first commit)
         self.series = None
 
         
@@ -166,7 +183,18 @@ class LSTM_(FeatureList):
         df.sort_values(by='date',inplace=True)
         # Extracting the series
          # Picking the self.series with high correlation
+<<<<<<< HEAD
+         
+         
         df['label'] = 100*(df.high- df.open)/df.open>=2
+        # self.df=df
+        # self.long_label_profit_stop_loss()
+        # df=self.df
+        
+        
+=======
+        df['label'] = 100*(df.high- df.open)/df.open>=2
+>>>>>>> 5013666 (first commit)
         df['label'] = df['label'].astype(int)
         df[self.features] = df[self.features].astype(float)
         self.series = df[self.features + ['label']]

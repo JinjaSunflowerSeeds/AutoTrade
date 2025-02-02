@@ -43,13 +43,13 @@ class ModelPredictionChart:
         self.preds= pd.read_csv(model_prediction_file)[['date', 'prob', 'label']]
         self.preds['date'] = pd.to_datetime(self.preds.date)
         self.preds.set_index("date", inplace=True)
-        print(self.preds)
+        print("pred df=", self.preds.shape)
         
     def get_data(self,filepath):
         self.df = pd.read_csv(filepath)#.tail(60)
         self.df["date"] = pd.to_datetime(self.df["date"])
-        s = "12/30/2024"
-        e = "12/31/2024"
+        s = "1/3/2025"
+        e = "1/4/2025"
         self.df = self.df[(self.df.date >= s) & (self.df.date < e)]
         self.df.set_index("date", inplace=True)
 
@@ -69,7 +69,7 @@ class ModelPredictionChart:
                 l.append(i.low - 0.01)
             else:
                 l.append(np.nan)
-            if i.prob>self.df['prob'].quantile(0.9):
+            if i.prob>0.005: #self.df['prob'].quantile(0.9):
                 ll.append(i.low - 0.01)
             else:
                 ll.append(np.nan)
@@ -77,7 +77,7 @@ class ModelPredictionChart:
             mpf.make_addplot(
                 l,
                 scatter=True,
-                markersize=10,
+                markersize=20,
                 marker="^",
                 color="black",
                 ylabel="Buy Signal",
@@ -158,6 +158,7 @@ class ModelPredictionChart:
    
     def show(self):
         plt.tight_layout()
+        plt.legend()
         plt.show()
 
 

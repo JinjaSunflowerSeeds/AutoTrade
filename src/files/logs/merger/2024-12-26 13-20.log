@@ -1,7 +1,0 @@
-2024-12-26 13:20:36,713 - merger - INFO - consolidate_data - Consolidating data... ./files/economy
-2024-12-26 13:20:36,715 - merger - INFO - consolidate_data - Consolidating data... ./files/economy/gdp
-2024-12-26 13:20:36,715 - merger - INFO - consolidate_data - Consolidating data... ./files/economy/cpi
-2024-12-26 13:20:36,716 - merger - INFO - consolidate_data - Consolidating data... ./files/economy/fear_n_greed
-2024-12-26 13:20:36,720 - merger - INFO - consolidate_data - Consolidating data... ./files/economy/treasury
-2024-12-26 13:20:36,720 - merger - INFO - consolidate_data - Consolidating data... ./files/economy/mortgage
-2024-12-26 13:20:36,721 - merger - INFO - consolidate_data - Consolidating data... ./files/economy/unemployment

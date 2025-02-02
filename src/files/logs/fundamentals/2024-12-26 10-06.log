@@ -1,6 +1,0 @@
-2024-12-26 10:06:56,621 - fundamentals - INFO - run - Scraping data from https://www.macrotrends.net/stocks/charts/NVDA/NVIDIA/financial-statements?freq=Q...
-2024-12-26 10:06:56,870 - fundamentals - INFO - save_to_csv - Saving data to ./files/fundamentals/NVDA
-2024-12-26 10:06:56,870 - fundamentals - ERROR - save_to_csv - Error saving data: [Errno 17] File exists: './files/fundamentals/NVDA'
-2024-12-26 10:06:56,871 - fundamentals - INFO - run - Fetching historical data for NVDA...
-2024-12-26 10:06:59,342 - fundamentals - INFO - fetch_data - Error fetching historical data: Pandas requires version '4.11.2' or newer of 'bs4' (version '4.11.1' currently installed).
-2024-12-26 10:06:59,342 - fundamentals - INFO - save_to_csv - Error saving historical data: [Errno 17] File exists: './files/fundamentals/{}'

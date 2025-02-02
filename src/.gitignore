@@ -1,3 +1,4 @@
+*.csv
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -108,3 +109,5 @@ logs/
 # Custom logs and outputs
 # logs/
 # *.log
+*.log
+.DS_Store

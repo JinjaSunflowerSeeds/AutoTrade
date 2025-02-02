@@ -1,8 +1,0 @@
-2024-12-26 10:28:07,153 - fundamentals - INFO - run - Scraping data from https://www.macrotrends.net/stocks/charts/NVDA/nvidia/income-statement?freq=Q...
-2024-12-26 10:28:07,349 - fundamentals - INFO - save_to_csv - Saving data to ./files/fundamentals/NVDA
-2024-12-26 10:28:07,356 - fundamentals - INFO - save_to_csv - Data successfully saved to ./files/fundamentals/NVDA/financial/2009-01-31_to_2024-10-31.csv
-2024-12-26 10:28:07,358 - fundamentals - INFO - run - Fetching historical data for NVDA...
-2024-12-26 10:28:09,802 - fundamentals - INFO - fetch_data - Error fetching historical data: Pandas requires version '4.11.2' or newer of 'bs4' (version '4.11.1' currently installed).
-2024-12-26 10:28:09,805 - fundamentals - INFO - save_to_csv - Saved dividends to ./files/fundamentals/NVDA/dividends/2012_11_20_to_2024_12_05.csv
-2024-12-26 10:28:09,806 - fundamentals - INFO - save_to_csv - Saved splits to ./files/fundamentals/NVDA/splits/2000_06_27_to_2024_06_10.csv
-2024-12-26 10:28:09,814 - fundamentals - INFO - save_to_csv - Error saving historical data: 'str' object has no attribute 'strftime'
