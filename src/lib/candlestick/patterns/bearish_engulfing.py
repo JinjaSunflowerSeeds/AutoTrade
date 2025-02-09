@@ -8,10 +8,7 @@ class BearishEngulfing(CandlestickFinder):
     def logic(self, idx):
         candle = self.data.iloc[idx]
         prev_candle = self.data.iloc[idx + 1 * self.multi_coeff]
-<<<<<<< HEAD
         prev_prev_candle = self.data.iloc[idx + 2 * self.multi_coeff]
-=======
->>>>>>> 5013666 (first commit)
 
         close = candle[self.close_column]
         open = candle[self.open_column]
@@ -22,7 +19,6 @@ class BearishEngulfing(CandlestickFinder):
         prev_open = prev_candle[self.open_column]
         prev_high = prev_candle[self.high_column]
         prev_low = prev_candle[self.low_column]
-<<<<<<< HEAD
 
         # return (
         #     (prev_close > prev_open)  # Previous candle was bullish
@@ -36,14 +32,6 @@ class BearishEngulfing(CandlestickFinder):
             and open - close > prev_close - prev_open
         )
 
-=======
-        
-        return (open >= prev_close > prev_open and
-                open > close and
-                prev_open >= close and 
-                open - close > prev_close - prev_open)
-        
->>>>>>> 5013666 (first commit)
         # return (prev_close > prev_open and
         #         0.3 > abs(prev_close - prev_open) / (prev_high - prev_low) >= 0.1 and
         #         close < open and

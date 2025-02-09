@@ -1,23 +1,16 @@
 import sys
-<<<<<<< HEAD
 sys.path.append('./')
-=======
->>>>>>> 5013666 (first commit)
 sys.path.append('./lib')
 
 import pandas as pd
 import numpy as np
-<<<<<<< HEAD
 import pandas_ta as ta
-=======
->>>>>>> 5013666 (first commit)
 from stockstats import wrap
 from lib.candlestick import candlestick
 import pandas as pd
 from ta import add_all_ta_features
 from ta.utils import dropna
 from lib.color_logger import MyLogger
-<<<<<<< HEAD
 import copy
 
 from utils.config_reader import  get_merger_final_output_file
@@ -99,11 +92,6 @@ class CandlestickChart:
         self.df = pd.concat([self.df, patterns], axis=1)
 
 class TA(CandlestickChart, MyLogger):
-=======
-
-
-class TA(MyLogger):
->>>>>>> 5013666 (first commit)
     def __init__(self, filepath):
         super().__init__()
         self.filepath = filepath
@@ -178,57 +166,6 @@ class TA(MyLogger):
             (self.df.low>self.df.shift(1).low) &
             (self.df.close<self.df.shift(1).close),'BearHarami'] = 1
 
-<<<<<<< HEAD
-=======
-    def candle_stick(self):
-        self.log.info(" Adding candle stick patterns ...")
-        self.df = candlestick.inverted_hammer(self.df, target='inverted_hammer')
-        self.df = candlestick.bearish_engulfing(self.df, target="bearish_engulfing")
-        self.df = candlestick.dark_cloud_cover(self.df, target="dark_cloud_cover")
-        self.df = candlestick.evening_star_doji(self.df, target="evening_star_doji")
-        self.df = candlestick.morning_star(self.df, target="morning_star")
-        self.df = candlestick.shooting_star(self.df, target="shooting_star")
-        self.df = candlestick.bearish_harami(self.df, target="bearish_harami")
-        self.df = candlestick.doji(self.df, target="doji")
-        self.df = candlestick.gravestone_doji(self.df, target="gravestone_doji")
-        self.df = candlestick.morning_star_doji(self.df, target="morning_star_doji")
-        self.df = candlestick.star(self.df, target="star")
-        self.df = candlestick.bullish_engulfing(self.df, target="bullish_engulfing")
-        self.df = candlestick.doji_star(self.df, target="doji_star")
-        self.df = candlestick.hammer(self.df, target="hammer")
-        self.df = candlestick.piercing_pattern(self.df, target="piercing_pattern")
-        self.df = candlestick.bullish_harami(self.df, target="bullish_harami")
-        self.df = candlestick.dragonfly_doji(self.df, target="dragonfly_doji")
-        self.df = candlestick.hanging_man(self.df, target="hanging_man")
-        self.df = candlestick.rain_drop(self.df, target="rain_drop")
-        self.df = candlestick.evening_star(self.df, target="evening_star")
-        self.df = candlestick.rain_drop_doji(self.df, target="rain_drop_doji")
-
-        # self.df = candlestick.tweezer_bottom(self.df, target="tweezer_bottom")
-        # self.df = candlestick.tweezer_top(self.df, target="tweezer_top")
-        # self.df = candlestick.bearish_marubozu(self.df, target="bearish_mar")
-        # self.df = candlestick.bullish_marubozu(self.df, target="bullish_mar")
-        # self.df = candlestick.bearish_spinning_top(self.df, target="bearish_spinning_top")
-        # self.df = candlestick.bullish_spinning_top(self.df, target="bullish_spinning_top")
-        # self.df = candlestick.bearish_abandoned_baby(self.df, target="bearish_abandon")
-        # self.df = candlestick.bullish_abandoned_baby(self.df, target="bullish_abandoned")
-        # self.df = candlestick.bearish_triple_top(self.df, target="bearish_triple_top")
-        # self.df = candlestick.bullish_triple_top(self.df, target="bullish_triple_top")
-        # self.df = candlestick.bearish_head_and_shoulders(self.df, target="bearish_head_and_shoulders")
-        # self.df = candlestick.bullish_head_and_shoulders(self.df, target="bullish_head_and_shoulders")
-        # self.df = candlestick.bearish_inverted_hammer(self.df, target="bearish_inverted_hammer")
-        # self.df = candlestick.bullish_inverted_hammer(self.df, target="bullish_inverted_hammer")
-
-        self.df[['inverted_hammer',"bearish_engulfing","dark_cloud_cover","evening_star_doji","morning_star",
-                 "shooting_star","bearish_harami","doji","gravestone_doji","morning_star_doji","star",
-                 "bullish_engulfing","doji_star","hammer","piercing_pattern","bullish_harami",
-                 "dragonfly_doji","hanging_man","rain_drop","evening_star","rain_drop_doji"]]= self.df[['inverted_hammer',"bearish_engulfing","dark_cloud_cover","evening_star_doji","morning_star",
-                 "shooting_star","bearish_harami","doji","gravestone_doji","morning_star_doji","star",
-                 "bullish_engulfing","doji_star","hammer","piercing_pattern","bullish_harami",
-                 "dragonfly_doji","hanging_man","rain_drop","evening_star","rain_drop_doji"]].astype('float')
-
-
->>>>>>> 5013666 (first commit)
     def gen_ta_aux(self):
         # Add ta features filling NaN values
         self.df = add_all_ta_features(
@@ -238,11 +175,7 @@ class TA(MyLogger):
         exit(1)
 
     def gen_ta(self):
-<<<<<<< HEAD
         self.log.info(" Adding technical indicators...")
-=======
-        self.log.info(" Generating technical analysis ...")
->>>>>>> 5013666 (first commit)
         # self.gen_ta_aux()
         # https://pypi.org/project/stockstats/
         ta = wrap(self.df)
@@ -378,29 +311,17 @@ class TA(MyLogger):
 
     def driver(self, data):
         self.set_data(data)
-<<<<<<< HEAD
         self.cs_patterns()
-=======
-        self.candle_stick()
->>>>>>> 5013666 (first commit)
         self.gen_ta()
         self.eight_trigram()
         self.log.info("="*100)
         return self.get_data()
 
 if __name__ == '__main__':
-<<<<<<< HEAD
     ta = TA(filepath=get_merger_final_output_file())
     ta.read_file()
     ta.gen_ta()
     ta.eight_trigram()
     ta.cs_patterns()
-=======
-    ta = TA(filepath='./files/ohlcv_1d.csv')
-    ta.read_file()
-    ta.gen_ta()
-    ta.eight_trigram()
-    ta.candle_stick()
->>>>>>> 5013666 (first commit)
     ta.print_stats()
     ta.export_data('./files/ta_1d.csv')

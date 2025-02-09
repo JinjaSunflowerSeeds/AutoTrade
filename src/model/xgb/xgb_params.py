@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 from copy import deepcopy
 
 import numpy as np
@@ -7,56 +6,29 @@ import pandas as pd
 # import machine learning libraries
 import xgboost as xgb
 from hyperopt import fmin, hp, STATUS_OK, tpe, Trials
-=======
-
-from hyperopt import STATUS_OK, Trials, fmin, hp, tpe
-# import machine learning libraries
-import xgboost as xgb
-from sklearn.metrics import accuracy_score
-import numpy as np
-from copy import deepcopy
-from sklearn.model_selection import train_test_split
-import pandas as pd
-from sklearn.model_selection import train_test_split, GridSearchCV
-from xgboost import XGBClassifier
->>>>>>> 5013666 (first commit)
 from sklearn import preprocessing
 from sklearn.decomposition import PCA
 from sklearn.metrics import (
     accuracy_score,
-<<<<<<< HEAD
     auc,
-=======
->>>>>>> 5013666 (first commit)
     classification_report,
     confusion_matrix,
     f1_score,
     mean_squared_error as MSE,
-<<<<<<< HEAD
     precision_recall_curve,
-=======
->>>>>>> 5013666 (first commit)
     precision_score,
     r2_score,
     recall_score,
     roc_auc_score,
 )
-<<<<<<< HEAD
 from sklearn.model_selection import GridSearchCV, train_test_split
 
 from strategy.trading_strategy import open_close_strategy_gain
 from xgboost import XGBClassifier
-=======
-
-from strategy.trading_strategy import (
-    open_close_strategy_gain
-)
->>>>>>> 5013666 (first commit)
 
 
 class XgbUtils:
     def __init__(self):
-<<<<<<< HEAD
         self.hyper_space = {
             "max_depth": hp.quniform("max_depth", 3, 18, 1),
             "gamma": hp.uniform("gamma", 1, 9),
@@ -104,53 +76,21 @@ class XgbUtils:
                 n_jobs=-1,
                 eval_metric="aucpr",
             )
-=======
-        self.hyper_space={
-            'max_depth': hp.quniform("max_depth", 3, 18, 1),
-            'gamma': hp.uniform ('gamma', 1,9),
-            'reg_alpha' : hp.quniform('reg_alpha', 40,180,1),
-            'reg_lambda' : hp.uniform('reg_lambda', 0,1),
-            'colsample_bytree' : hp.uniform('colsample_bytree', 0.5,1),
-            'min_child_weight' : hp.quniform('min_child_weight', 0, 10, 1),
-            'n_estimators': [180, 250, 500, 1000, 10000,],
-            'seed': 0
-            }
-
-    def get_xbg_model(self, do_binary):
-        if do_binary:
->>>>>>> 5013666 (first commit)
             return XGBClassifier(
                 # colsample_bytree= 1.0, eta= 0.01, max_depth= 5,
                 # n_estimators= 500,  subsample= 0.8,
                 #  reg_lambda= 3,
-<<<<<<< HEAD
                 n_estimators=500,
-=======
-
-                n_estimators=100,
->>>>>>> 5013666 (first commit)
                 max_depth=5,
                 # eta=0.1,
                 # subsample=0.7,
                 colsample_bytree=0.01,
-<<<<<<< HEAD
                 # colsample_bynode=0.28,
                 # reg_alpha=1,#l1
                 # reg_lambda=50,  # l2
                 n_jobs=-1,
                 random_state=1989,
                 eval_metric="aucpr",
-=======
-
-                # colsample_bynode=0.28,
-
-                # reg_alpha=1,#l1
-                # reg_lambda=50,  # l2
-
-
-                n_jobs=-1,
-                random_state=1989,
->>>>>>> 5013666 (first commit)
             )
         else:
             return XGBRegressor(
@@ -166,20 +106,14 @@ class XgbUtils:
             )
 
     def make_date_future_n_add_label_for_export(self, df_=None):
-<<<<<<< HEAD
         print(df_)
         print("+"*120)
-=======
->>>>>>> 5013666 (first commit)
         # label is already from future
         p = deepcopy(self.df[["date", "label"]].reset_index(drop=True, inplace=False))
         p["label"] = p.label.shift(1)
         df_ = df_.merge(p, on="date")
-<<<<<<< HEAD
         # df_['date'] = pd.to_datetime(df_['date'])
         # self.df['date'] = pd.to_datetime(self.df['date'])
-=======
->>>>>>> 5013666 (first commit)
         # shift the dates one day forward to make it the day forcast is made for ( pd.offsets.BusinessDay(n=1) is not accurate as it does not consider market holidays)
         # changing input (date prediction was made, pred) ->to-> (date pred was made for, pred)
         # get last record, make its date next one, for other ones shift the prediction up, then join back
@@ -196,15 +130,10 @@ class XgbUtils:
         )
         df_[["pred", "prob"]] = df_[["pred", "prob"]].shift(1)
         df_ = pd.concat([df_.iloc[1:], t], axis=0)
-<<<<<<< HEAD
         # add close and open
         df_ = df_.merge(
             self.df[["date", "open", "close", "low", "high"]], on="date", how="left"
         )
-=======
-        #add close and open
-        df_ =df_.merge(self.df[['date', 'open', 'close', 'low', 'high']], on='date', how='left')
->>>>>>> 5013666 (first commit)
         return df_
 
     def export_data(self, filepath_prefix="./files/xgb/"):
@@ -212,25 +141,15 @@ class XgbUtils:
         self.metrics(pred_df.iloc[:-1])  # last one is NaN
         f = filepath_prefix + "{}_binary_output.csv".format(self.direction)
         if not self.do_binary:
-<<<<<<< HEAD
             f = filepath_prefix + "regression_output.csv"
-=======
-            f= filepath_prefix + "regression_output.csv"
->>>>>>> 5013666 (first commit)
         self.log.info(" Exporting to " + f)
         pred_df.to_csv(f)
         print(pred_df)
 
     def print_overall_important_features(self, top_cnt=-1):
-<<<<<<< HEAD
         for i in sorted(
             zip(self.feature_importance_scores, self.features), reverse=True
         )[:top_cnt]:
-=======
-        for i in sorted(zip(self.feature_importance_scores, self.features), reverse=True)[
-            :top_cnt
-        ]:
->>>>>>> 5013666 (first commit)
             self.log.info(i)
 
     def feature_importance(self, features, top_cnt=10):
@@ -243,7 +162,6 @@ class XgbUtils:
 
     def scale_feautres(self):
         self.log.info("  Scaling data...")
-<<<<<<< HEAD
         # self.log.info("   ->features:{}".format(self.features))
         # mm = preprocessing.StandardScaler().fit(self.train[self.features])
         self.log.error("imputing nulls FIXME")
@@ -261,16 +179,12 @@ class XgbUtils:
         ]
         print("Columns with excessively large values:", large_values.tolist())
 
-=======
-        # mm = preprocessing.StandardScaler().fit(self.train[self.features])
->>>>>>> 5013666 (first commit)
         mm = preprocessing.MinMaxScaler().fit(self.train[self.features])
         self.train[self.features] = mm.transform(self.train[self.features])
         self.test[self.features] = mm.transform(self.test[self.features])
 
     def metrics(self, pred_df):
         try:
-<<<<<<< HEAD
             if False:
                 self.log.warning(
                     "   ->accuracy={:.3f}".format(
@@ -303,24 +217,11 @@ class XgbUtils:
                         * roc_auc_score(pred_df.label, pred_df.prob, multi_class="ovr")
                     )
                 )
-=======
-            if self.do_binary:
-                self.log.warning("   ->accuracy={:.3f}".format(100 * accuracy_score(pred_df.label, pred_df.pred>0.5)))
-                self.log.warning(
-                    "   ->precision_50={:.3f}, #trades={:.0f}".format(100 * precision_score(pred_df.label, pred_df.pred>0.5),pred_df.pred.sum())
-                )
-                self.log.warning(
-                    "   ->precision_75={:.3f}, #trades={:.0f}".format(100 * precision_score(pred_df.label, [i>0.75 for i in pred_df.prob]),
-                                                                      np.sum([i>0.75 for i in pred_df.prob]))
-                )
-                self.log.warning("   ->auc={:.3f}".format(100 * roc_auc_score(pred_df.label, pred_df.prob)))
->>>>>>> 5013666 (first commit)
                 self.log.warning(
                     "   ->f1={:.3f}".format(
                         100 * f1_score(pred_df.label, pred_df.pred, average="weighted")
                     )
                 )
-<<<<<<< HEAD
                 self.log.warning(
                     "   ->recall={:.3f}".format(
                         100 * recall_score(pred_df.label, pred_df.pred)
@@ -401,38 +302,17 @@ class XgbUtils:
     def predict(self, train, test, train_label):
         self.log.info("  Predictng...")
         train["pred"] = self.model.predict(train)
-=======
-                self.log.warning("   ->recall={:.3f}".format(100 * recall_score(pred_df.label, pred_df.pred)))
-                self.log.warning("   ->$gain={}".format(open_close_strategy_gain(pred_df, self.direction)))
-            else:
-                self.log.warning("   ->rmse={}".format(np.sqrt(MSE(pred_df.label, pred_df.pred))))
-                self.log.warning("   ->r2={}".format(r2_score(pred_df.label, pred_df.pred, multioutput="variance_weighted")))
-                self.log.warning("   ->corr={}".format(np.corrcoef(pred_df.label, pred_df.pred)[0][1]))
-        except Exception as e:
-            self.log.warning(e)
-
-    def predict(self, train, test, train_label):
-        self.log.info("  Predictng...")
-        train['pred'] = self.model.predict(train)
->>>>>>> 5013666 (first commit)
         self.log.info(test)
         yhat = self.model.predict(test)
         test_prob, train_prob = 0, None
         if self.do_binary:
             test_prob = self.model.predict_proba(test)[0][1]
-<<<<<<< HEAD
             train["prob"] = [
                 i[1] for i in self.model.predict_proba(train[self.features])
             ]
 
         self.log.info("  ->Train")
         train["label"] = train_label
-=======
-            train['prob'] = [i[1] for i in self.model.predict_proba(train[self.features])]
-
-        self.log.info("  ->Train")
-        train['label']=train_label
->>>>>>> 5013666 (first commit)
         self.metrics(train)
         assert len(self.test) == 1
         self.preds.append([self.test.date.values[0], yhat[0], test_prob])
@@ -440,12 +320,8 @@ class XgbUtils:
     def set_data(self, data):
         self.log.info(
             " Unused features:{}".format(
-<<<<<<< HEAD
                 len([i for i in data.columns.tolist() if i not in self.features])
             )
-=======
-            [i for i in data.columns.tolist() if i not in self.features])
->>>>>>> 5013666 (first commit)
         )
         self.df = data
 
@@ -474,26 +350,16 @@ class XgbUtils:
         )
         return train, test
 
-<<<<<<< HEAD
     def hyer_tune(self, train_df, labels):
         # Split the data into training and testing sets
         X_train, X_test, y_train, y_test = train_test_split(
             train_df, labels, test_size=0.2, random_state=42
         )
-=======
-
-    def hyer_tune(self, train_df, labels):
-        # Split the data into training and testing sets
-        X_train, X_test, y_train, y_test = train_test_split(train_df, labels,
-                                                            test_size=0.2,
-                                                            random_state=42)
->>>>>>> 5013666 (first commit)
 
         # Define the XGBoost model
         xgb_model = XGBClassifier()
 
         # Define the hyperparameters and their possible values for tuning
-<<<<<<< HEAD
         param_grid = {
             # 'learning_rate': [0.01, 0.1, 0.2],
             "n_estimators": [100, 500, 1000],
@@ -516,24 +382,6 @@ class XgbUtils:
             n_jobs=-1,
             verbose=3,
         )
-=======
-        param_grid  = {
-                        # 'learning_rate': [0.01, 0.1, 0.2],
-                        'n_estimators': [ 100, 500, 1000],
-                        'max_depth': [3, 5, 7],
-                        'subsample': [0.3, 0.8, 1.0],
-                        'colsample_bytree': [0.8, 0.9, 1.0],
-                        # 'min_child_weight': [1, 3, 5],
-                        # 'gamma': [0, 0.1, 0.2, 0.3],
-                        'eta': [0.01, 0.1,0.5],
-                        'reg_alpha': [0, 1, 2 ,3],
-                        'reg_lambda':[0, 1, 2 ,3]
-                        }
-
-        # Perform Grid Search Cross-Validation
-        grid_search = GridSearchCV(estimator=xgb_model, param_grid=param_grid,
-                                   scoring='precision', cv=3, n_jobs=-1, verbose=3)
->>>>>>> 5013666 (first commit)
         grid_search.fit(X_train, y_train)
 
         # self.log.info the best hyperparameters
@@ -549,7 +397,6 @@ class XgbUtils:
         # do hyper by using 80% for traiing and 20% for testing, the best will be based on the latter
         # XgbUtils().hyer_tune(df, labels)
         # print(df.columns.tolist())
-<<<<<<< HEAD
         self.log.warning(
             f"nulls before train {df.shape}=> {df[df.isnull().any(axis=1)]}"
         )
@@ -557,11 +404,4 @@ class XgbUtils:
         if len(x) > 0:
             print(x)
             # assert False and "nan columns"
-=======
-        print(df[df.isnull().any(axis=1)])
-        x=df.columns[df.isnull().any()]
-        if len(x)>0:
-            print(x)
-            # assert False and "nan columns" 
->>>>>>> 5013666 (first commit)
         self.model.fit(df, labels)

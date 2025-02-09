@@ -7,11 +7,7 @@ from preproc.technical_indicators import TA
 from preproc.trading_signals import TS
 from preproc.feature_eng import FeatureEngineering
 from model.xgb.xgb import XGB
-<<<<<<< HEAD
 from utils.config_reader import get_merger_final_output_file,get_manual_output_path
-=======
-from utils.config_reader import get_merger_output_file
->>>>>>> 5013666 (first commit)
 from lib.color_logger import MyLogger
 
 class Driver(MyLogger):
@@ -32,7 +28,6 @@ class Driver(MyLogger):
         self.log.info("  -> date range from {} to {}".format(self.df['date'].min(), self.df['date'].max()))
         self.log.info(self.df.columns.tolist())
 
-<<<<<<< HEAD
     def driver(self, manual_labels_dir):
         df= copy.deepcopy(self.df)#self.df.iloc[:i])
         df=self._pp.driver(df)# impute
@@ -45,26 +40,9 @@ class Driver(MyLogger):
             break
         self._xgb.print_overall_important_features()
         self._xgb.chart_preds()
-=======
-    def driver(self):
-        for i in range(len(self.df) - self._xgb.start_from, len(self.df)+1):
-            train= copy.deepcopy(self.df.iloc[:i])
-            train=self._pp.driver(train)# impute
-            train=self._ta.driver(train)# technical indocators
-            train=self._ts.driver(train)# trading signals
-            train=self._fe.driver(train)# feature eng
-            self._xgb.driver(train)# training
-            self._xgb.export_data()
-        self._xgb.print_overall_important_features()
->>>>>>> 5013666 (first commit)
 
 
 if __name__ == '__main__':
     d= Driver()
-<<<<<<< HEAD
     d.read_file(get_merger_final_output_file())
     d.driver(get_manual_output_path())
-=======
-    d.read_file(filepath=get_merger_output_file())
-    d.driver()
->>>>>>> 5013666 (first commit)
